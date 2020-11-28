@@ -1,8 +1,8 @@
 ﻿<SolutionConfiguration>
   <Settings>
-    <AutoEnable>True</AutoEnable>
+    <AutoEnable>False</AutoEnable>
     <CurrentEngineMode>Run all tests automatically [Global]</CurrentEngineMode>
-    <StatusIndicatorSplitterDistance>15%</StatusIndicatorSplitterDistance>
+    <StatusIndicatorSplitterDistance>16.4739875793457%</StatusIndicatorSplitterDistance>
     <TestsWindowSplitterDistance>50%</TestsWindowSplitterDistance>
   </Settings>
 </SolutionConfiguration>

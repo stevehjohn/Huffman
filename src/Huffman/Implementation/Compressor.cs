@@ -11,9 +11,9 @@ namespace Huffman.Implementation
         {
             var frequencies = DetermineFrequencies(input);
 
-            var orderedFrequencies = GetOrderedFrequencies(frequencies);
+            var distinctFrequencies = GetFrequencies(frequencies);
 
-            var huffmanTree = BuildHuffmanTree(orderedFrequencies);
+            var huffmanTree = BuildHuffmanTree(distinctFrequencies);
 
             return null;
         }
@@ -30,7 +30,7 @@ namespace Huffman.Implementation
             return frequencies;
         }
 
-        private static IOrderedEnumerable<CharacterFrequency> GetOrderedFrequencies(int[] input)
+        private static IEnumerable<CharacterFrequency> GetFrequencies(int[] input)
         {
             var frequencies = new Dictionary<char, int>();
 
@@ -42,11 +42,12 @@ namespace Huffman.Implementation
                 }
             }
 
-            return frequencies.Select(f => new CharacterFrequency { Character = f.Key, Frequency = f.Value }).OrderBy(f => f.Frequency);
+            return frequencies.Select(f => new CharacterFrequency { Character = f.Key, Frequency = f.Value });
         }
 
-        private static HuffmanNode BuildHuffmanTree(IOrderedEnumerable<CharacterFrequency> input)
+        private static HuffmanNode BuildHuffmanTree(IEnumerable<CharacterFrequency> input)
         {
+
         }
     }
 }

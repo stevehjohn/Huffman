@@ -48,7 +48,14 @@ namespace Huffman.Implementation
 
         private static HuffmanNode BuildHuffmanTree(IEnumerable<CharacterFrequency> input)
         {
-            throw new NotImplementedException();
+            var queue = new PriorityQueue<HuffmanNode>();
+
+            foreach (var item in input)
+            {
+                queue.Add(new HuffmanNode { Frequency = item.Frequency, Character = item.Character });
+            }
+
+            return null;
         }
     }
 }

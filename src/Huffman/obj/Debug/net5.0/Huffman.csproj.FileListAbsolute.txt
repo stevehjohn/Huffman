@@ -1,0 +1,12 @@
+C:\Git\Compression\src\Huffman\bin\Debug\net5.0\Huffman.deps.json
+C:\Git\Compression\src\Huffman\bin\Debug\net5.0\Huffman.dll
+C:\Git\Compression\src\Huffman\bin\Debug\net5.0\ref\Huffman.dll
+C:\Git\Compression\src\Huffman\bin\Debug\net5.0\Huffman.pdb
+C:\Git\Compression\src\Huffman\obj\Debug\net5.0\Huffman.csprojAssemblyReference.cache
+C:\Git\Compression\src\Huffman\obj\Debug\net5.0\Huffman.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\Compression\src\Huffman\obj\Debug\net5.0\Huffman.AssemblyInfoInputs.cache
+C:\Git\Compression\src\Huffman\obj\Debug\net5.0\Huffman.AssemblyInfo.cs
+C:\Git\Compression\src\Huffman\obj\Debug\net5.0\Huffman.csproj.CoreCompileInputs.cache
+C:\Git\Compression\src\Huffman\obj\Debug\net5.0\Huffman.dll
+C:\Git\Compression\src\Huffman\obj\Debug\net5.0\ref\Huffman.dll
+C:\Git\Compression\src\Huffman\obj\Debug\net5.0\Huffman.pdb

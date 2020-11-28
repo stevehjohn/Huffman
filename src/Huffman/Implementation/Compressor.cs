@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Huffman.Infrastructure;
 using Huffman.Models;
@@ -47,7 +48,7 @@ namespace Huffman.Implementation
 
         private static HuffmanNode BuildHuffmanTree(IEnumerable<CharacterFrequency> input)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

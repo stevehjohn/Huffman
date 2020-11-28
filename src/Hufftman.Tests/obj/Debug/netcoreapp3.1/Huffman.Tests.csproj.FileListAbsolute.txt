@@ -1,4 +1,0 @@
-C:\Git\Compression\src\Hufftman.Tests\obj\Debug\netcoreapp3.1\Huffman.Tests.csprojAssemblyReference.cache
-C:\Git\Compression\src\Hufftman.Tests\obj\Debug\netcoreapp3.1\Huffman.Tests.AssemblyInfoInputs.cache
-C:\Git\Compression\src\Hufftman.Tests\obj\Debug\netcoreapp3.1\Huffman.Tests.AssemblyInfo.cs
-C:\Git\Compression\src\Hufftman.Tests\obj\Debug\netcoreapp3.1\Huffman.Tests.csproj.CoreCompileInputs.cache

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huffman", "Huffman\Huffman.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huffman.Tests", "Hufftman.Tests\Huffman.Tests.csproj", "{AB0E541B-6980-411F-99FD-E6ED2AFE57EC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{64E24350-9287-47FC-A96E-A62672855541}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64E24350-9287-47FC-A96E-A62672855541}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

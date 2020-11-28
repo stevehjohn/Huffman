@@ -11,6 +11,8 @@ namespace Huffman.Infrastructure
 
         private readonly PropertyInfo _priorityProperty;
 
+        public int Length => _items.Count;
+
         public PriorityQueue()
         {
             _items = new List<T>();
@@ -26,7 +28,7 @@ namespace Huffman.Infrastructure
         public T PopMin()
         {
             // TODO: This works, but I don't like it. (int) should be a variant type.
-            var item = _items.Single(i => (int) _priorityProperty.GetValue(i) == (int) _items.Min(x => _priorityProperty.GetValue(x)));
+            var item = _items.First(i => (int) _priorityProperty.GetValue(i) == (int) _items.Min(x => _priorityProperty.GetValue(x)));
 
             _items.Remove(item);
 

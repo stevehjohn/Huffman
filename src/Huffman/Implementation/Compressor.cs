@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Huffman.Infrastructure;
 using Huffman.Models;
@@ -55,7 +54,23 @@ namespace Huffman.Implementation
                 queue.Add(new HuffmanNode { Frequency = item.Frequency, Character = item.Character });
             }
 
-            return null;
+            while (queue.Length > 1)
+            {
+                var left = queue.PopMin();
+
+                var right = queue.PopMin();
+
+                var node = new HuffmanNode
+                           {
+                               Frequency = left.Frequency + right.Frequency,
+                               Left = left,
+                               Right = right
+                           };
+
+                queue.Add(node);
+            }
+
+            return queue.PopMin();
         }
     }
 }

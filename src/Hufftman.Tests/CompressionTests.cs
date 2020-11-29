@@ -15,9 +15,12 @@ namespace Huffman.Tests
         }
 
         [Theory]
-        [InlineData("War of the Worlds.txt")]
+        [InlineData("A Tale of Two Cities.txt")]
+        [InlineData("Frankenstein or the Modern Prometheus.txt")]
         [InlineData("Great Expectations.txt")]
         [InlineData("Les Misérables.txt")]
+        [InlineData("Pride and Prejudice.txt")]
+        [InlineData("War of the Worlds.txt")]
         public void File_compresses_and_decompresses(string filename)
         {
             var file = File.ReadAllText($"Test Files\\{filename}");

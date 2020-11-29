@@ -18,10 +18,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Test Files\A Tale of Two Cities.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Test Files\Frankenstein or the Modern Prometheus.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Test Files\Great Expectations.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Test Files\Les Misérables.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Test Files\Pride and Prejudice.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Test Files\War of the Worlds.txt">

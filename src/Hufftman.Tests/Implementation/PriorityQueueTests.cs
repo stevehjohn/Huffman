@@ -8,7 +8,7 @@ namespace Huffman.Tests.Implementation
         [Fact]
         public void Blah()
         {
-            var queue = new PriorityQueue<TestNode>();
+            var queue = new PriorityQueue<TestNode, int>();
 
             queue.Add(new TestNode { Priority = 5, Description = "Five" });
             queue.Add(new TestNode { Priority = 4, Description = "1-Four" });

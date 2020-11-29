@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace Huffman.Implementation
 {
-    public class PriorityQueue<T>
+    public class PriorityQueue<T, TP> where TP : struct
     {
         private readonly List<T> _items;
 
@@ -29,8 +29,7 @@ namespace Huffman.Implementation
 
         public T PopMin()
         {
-            // TODO: This works, but I don't like it. (int) should be a variant type.
-            var items = _items.Where(i => (int) _priorityProperty.GetValue(i) == (int) _items.Min(x => _priorityProperty.GetValue(x)));
+            var items = _items.Where(i => _priorityProperty.GetValue(i).Equals((TP) _items.Min(x => _priorityProperty.GetValue(x))));
 
             var item = items.OrderBy(i => _sortProperty.GetValue(i)).First();
 

@@ -29,7 +29,9 @@ namespace Huffman.Implementation
 
         public T PopMin()
         {
-            var items = _items.Where(i => _priorityProperty.GetValue(i).Equals((TP) _items.Min(x => _priorityProperty.GetValue(x))));
+            var min = Convert.ChangeType(_items.Min(i => _priorityProperty.GetValue(i)), typeof(TP));
+
+            var items = _items.Where(i => _priorityProperty.GetValue(i).Equals(min));
 
             var item = items.OrderBy(i => _sortProperty.GetValue(i)).First();
 

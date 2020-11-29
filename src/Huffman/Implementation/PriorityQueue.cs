@@ -31,13 +31,27 @@ namespace Huffman.Implementation
         {
             var min = Convert.ChangeType(_items.Min(i => _priorityProperty.GetValue(i)), typeof(TP));
 
-            var items = _items.Where(i => _priorityProperty.GetValue(i).Equals(min));
+            var items = _items.Where(i => GetPriorityPropertyValue(i).Equals(min));
 
             var item = items.OrderBy(i => _sortProperty.GetValue(i)).First();
 
             _items.Remove(item);
 
             return item;
+        }
+
+        private TP GetPriorityPropertyValue(T input)
+        {
+            var value =_priorityProperty.GetValue(input);
+
+            try
+            {
+                return (TP) value;
+            }
+            catch
+            {
+                throw new InvalidCastException($"Cannot cast priority property {_priorityProperty.Name} to {typeof(TP).Name}.");
+            }
         }
     }
 }

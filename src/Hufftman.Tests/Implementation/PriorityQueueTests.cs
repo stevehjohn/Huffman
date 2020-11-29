@@ -1,4 +1,5 @@
-﻿using Huffman.Implementation;
+﻿using System;
+using Huffman.Implementation;
 using Xunit;
 
 namespace Huffman.Tests.Implementation
@@ -6,7 +7,7 @@ namespace Huffman.Tests.Implementation
     public class PriorityQueueTests
     {
         [Fact]
-        public void Blah()
+        public void PopMin_returns_items_in_the_correct_order()
         {
             var queue = new PriorityQueue<TestNode, int>();
 
@@ -21,6 +22,16 @@ namespace Huffman.Tests.Implementation
             Assert.Equal("3-Four", queue.PopMin().Description);
             Assert.Equal("Five", queue.PopMin().Description);
             Assert.Equal("Six", queue.PopMin().Description);
+        }
+
+        [Fact]
+        public void PopMin_throws_exception_when_unable_to_cast_priority_property()
+        {
+            var queue = new PriorityQueue<TestNode, bool>();
+
+            queue.Add(new TestNode { Priority = 5, Description = "Five" });
+
+            Assert.Throws<InvalidCastException>(() => queue.PopMin());
         }
     }
 

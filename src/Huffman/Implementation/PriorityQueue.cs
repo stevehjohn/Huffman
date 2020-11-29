@@ -42,10 +42,11 @@ namespace Huffman.Implementation
 
         private TP GetPriorityPropertyValue(T input)
         {
-            var value =_priorityProperty.GetValue(input);
+            var value = _priorityProperty.GetValue(input);
 
             try
             {
+                // ReSharper disable once PossibleNullReferenceException - I am catching it!
                 return (TP) value;
             }
             catch

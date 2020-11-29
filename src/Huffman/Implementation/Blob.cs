@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Huffman.Implementation
 {
@@ -15,9 +16,9 @@ namespace Huffman.Implementation
 
         public void Append(string bits)
         {
-            if (bits.Length == 0)
+            if (string.IsNullOrWhiteSpace(bits))
             {
-                return;
+                throw new ArgumentOutOfRangeException(nameof(bits));
             }
 
             foreach (var bit in bits)

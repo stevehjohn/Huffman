@@ -1,7 +1,7 @@
 ﻿using Huffman.Implementation;
 using Xunit;
 
-namespace Huffman.Tests.Infrastructure
+namespace Huffman.Tests.Implementation
 {
     public class PriorityQueueTests
     {

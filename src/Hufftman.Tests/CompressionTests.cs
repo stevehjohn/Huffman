@@ -13,7 +13,7 @@ namespace Huffman.Tests
             _testOutputHelper = testOutputHelper;
         }
 
-        //[Fact]
+        [Fact]
         public void File_compresses_and_decompresses()
         {
             var file = File.ReadAllText("Test Files\\War of the Worlds.txt");
@@ -25,6 +25,8 @@ namespace Huffman.Tests
             _testOutputHelper.WriteLine($"Compressed size: {compressed.Length}");
 
             var decompressed = Compression.Decompress(compressed);
+            
+            _testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length}");
 
             Assert.Equal(file, decompressed);
         }

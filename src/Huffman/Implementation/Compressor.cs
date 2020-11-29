@@ -17,7 +17,14 @@
 
             _huffmanTree.Build(frequencies);
 
-            return null;
+            var blob = new Blob();
+
+            foreach (var character in input)
+            {
+                blob.Append(_huffmanTree.GetPath(character));
+            }
+
+            return blob.ToByteArray();
         }
     }
 }

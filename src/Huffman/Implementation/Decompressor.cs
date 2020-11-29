@@ -1,4 +1,6 @@
-﻿namespace Huffman.Implementation
+﻿using System.Text;
+
+namespace Huffman.Implementation
 {
     public class Decompressor
     {
@@ -17,7 +19,25 @@
 
             _huffmanTree.Build(data.Frequencies);
 
-            return null;
+            var output = new StringBuilder();
+
+            var bits = new BitReader(data.Data);
+
+            var node = _huffmanTree.Root;
+
+            for (var i = 0; i < data.Data.Length * 8; i++)
+            {
+                if (node.Character != '\0')
+                {
+                    output.Append(node.Character);
+
+                    node = _huffmanTree.Root;
+                }
+
+                node = bits.Read() ? node.Right : node.Left;
+            }
+
+            return output.ToString();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Huffman.Implementation
                 count++;
             }
 
-            var data = new byte[4 + frequencyTable.Length * 4 + Data.Length];
+            var data = new byte[4 + frequencyTable.Length + Data.Length];
 
             Buffer.BlockCopy(BitConverter.GetBytes(frequencies.Count), 0, data, 0, 4);
             Buffer.BlockCopy(frequencyTable, 0, data, 4, frequencyTable.Length);
@@ -51,6 +51,10 @@ namespace Huffman.Implementation
             }
 
             Frequencies = frequencies;
+
+            Data = new byte[data.Length - 4 - frequencyCount * 8];
+
+            Buffer.BlockCopy(data, 4 + frequencyCount * 8, Data, 0, data.Length - 4 - frequencyCount * 8);
         }
     }
 }

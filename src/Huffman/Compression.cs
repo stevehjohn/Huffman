@@ -1,5 +1,4 @@
-﻿using System;
-using Huffman.Implementation;
+﻿using Huffman.Implementation;
 
 namespace Huffman
 {

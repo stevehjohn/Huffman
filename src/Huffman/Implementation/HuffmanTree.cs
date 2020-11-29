@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Huffman.Models;
@@ -9,7 +7,7 @@ namespace Huffman.Implementation
 {
     public class HuffmanTree
     {
-        internal HuffmanNode Root;
+        public HuffmanNode Root { get; set; }
         private HuffmanNode[] _nodes;
 
         public void Build(IEnumerable<CharacterFrequency> input)

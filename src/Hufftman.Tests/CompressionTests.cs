@@ -30,23 +30,23 @@ namespace Huffman.Tests
             timer.Stop();
 
             _testOutputHelper.WriteLine($"Compressed size: {compressed.Length:N0} bytes");
+
+            _testOutputHelper.WriteLine($"Ratio: {(float) compressed.Length / file.Length *100:N2}%");
             
             _testOutputHelper.WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms");
 
-            _testOutputHelper.WriteLine($"Ratio: {(float) compressed.Length / file.Length *100:N2}%");
+            timer.Reset();
+            timer.Start();
 
-            //timer.Reset();
-            //timer.Start();
+            var decompressed = Compression.Decompress(compressed);
 
-            //var decompressed = Compression.Decompress(compressed);
+            timer.Stop();
 
-            //timer.Stop();
+            _testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length}");
 
-            //_testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length}");
+            _testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms");
 
-            //_testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms");
-
-            //Assert.Equal(file, decompressed);
+            Assert.Equal(file, decompressed);
         }
     }
 }

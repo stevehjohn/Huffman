@@ -30,7 +30,6 @@ namespace Huffman.Implementation
         public T PopMin()
         {
             // TODO: This works, but I don't like it. (int) should be a variant type.
-            // Also, maybe have a secondary sort property for when priority values are equal.
             var items = _items.Where(i => (int) _priorityProperty.GetValue(i) == (int) _items.Min(x => _priorityProperty.GetValue(x)));
 
             var item = items.OrderBy(i => _sortProperty.GetValue(i)).First();

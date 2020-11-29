@@ -14,10 +14,12 @@ namespace Huffman.Tests
             _testOutputHelper = testOutputHelper;
         }
 
-        [Fact]
-        public void File_compresses_and_decompresses()
+        [Theory]
+        [InlineData("War of the Worlds.txt")]
+        [InlineData("Great Expectations.txt")]
+        public void File_compresses_and_decompresses(string filename)
         {
-            var file = File.ReadAllText("Test Files\\War of the Worlds.txt");
+            var file = File.ReadAllText($"Test Files\\{filename}");
 
             _testOutputHelper.WriteLine($"Original size: {file.Length:N0} bytes");
 

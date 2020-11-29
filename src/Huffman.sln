@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huffman", "Huffman\Huffman.csproj", "{EAADA2DC-B8CD-4984-BA16-40F4A01D130D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huffman.Tests", "Hufftman.Tests\Huffman.Tests.csproj", "{AB0E541B-6980-411F-99FD-E6ED2AFE57EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huffman.Tests", "Huffman.Tests\Huffman.Tests.csproj", "{AB0E541B-6980-411F-99FD-E6ED2AFE57EC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64E24350-9287-47FC-A96E-A62672855541}"
 	ProjectSection(SolutionItems) = preProject

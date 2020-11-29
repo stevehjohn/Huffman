@@ -47,7 +47,8 @@ namespace Huffman.Implementation
             var data = new CompressedData
                        {
                            Data = blob.ToByteArray(),
-                           Frequencies = frequencies
+                           Frequencies = frequencies,
+                           OriginalLength = input.Length
                        };
 
             return data.Save();

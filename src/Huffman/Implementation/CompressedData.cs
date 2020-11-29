@@ -11,6 +11,8 @@ namespace Huffman.Implementation
 
         public byte[] Data { get; set; }
 
+        public int OriginalLength { get; set; }
+
         public byte[] Save()
         {
             var frequencies = Frequencies.ToList();
@@ -27,11 +29,12 @@ namespace Huffman.Implementation
                 count++;
             }
 
-            var data = new byte[4 + frequencyTable.Length + Data.Length];
+            var data = new byte[8 + frequencyTable.Length + Data.Length];
 
             Buffer.BlockCopy(BitConverter.GetBytes(frequencies.Count), 0, data, 0, 4);
-            Buffer.BlockCopy(frequencyTable, 0, data, 4, frequencyTable.Length);
-            Buffer.BlockCopy(Data, 0, data, 4 + frequencyTable.Length, Data.Length);
+            Buffer.BlockCopy(BitConverter.GetBytes(OriginalLength), 0, data, 4, 4);
+            Buffer.BlockCopy(frequencyTable, 0, data, 8, frequencyTable.Length);
+            Buffer.BlockCopy(Data, 0, data, 8 + frequencyTable.Length, Data.Length);
 
             return data;
         }
@@ -42,19 +45,21 @@ namespace Huffman.Implementation
 
             var frequencyCount = BitConverter.ToInt32(data, 0);
 
+            OriginalLength = BitConverter.ToInt32(data, 4);
+
             for (var i = 0; i < frequencyCount * 8; i += 8)
             {
-                var frequency = BitConverter.ToInt32(data, 4 + i);
-                var character = (char) BitConverter.ToInt32(data, 8 + i);
+                var frequency = BitConverter.ToInt32(data, 8 + i);
+                var character = (char) BitConverter.ToInt32(data, 12 + i);
 
                 frequencies.Add(new CharacterFrequency { Frequency = frequency, Character = character });
             }
 
             Frequencies = frequencies;
 
-            Data = new byte[data.Length - 4 - frequencyCount * 8];
+            Data = new byte[data.Length - 8 - frequencyCount * 8];
 
-            Buffer.BlockCopy(data, 4 + frequencyCount * 8, Data, 0, data.Length - 4 - frequencyCount * 8);
+            Buffer.BlockCopy(data, 8 + frequencyCount * 8, Data, 0, data.Length - 8 - frequencyCount * 8);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Huffman.Implementation
 
             var node = _huffmanTree.Root;
 
-            for (var i = 0; i < data.Data.Length * 8; i++)
+            while (output.Length < data.OriginalLength)
             {
                 if (node.Character != '\0')
                 {

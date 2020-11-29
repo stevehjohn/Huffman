@@ -13,7 +13,7 @@ namespace Huffman.Tests
             _testOutputHelper = testOutputHelper;
         }
 
-        [Fact]
+        //[Fact]
         public void File_compresses_and_decompresses()
         {
             var file = File.ReadAllText("Test Files\\War of the Worlds.txt");

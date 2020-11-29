@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Huffman.Infrastructure
+namespace Huffman.Implementation
 {
     public class PriorityAttribute : Attribute
     {

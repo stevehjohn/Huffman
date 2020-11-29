@@ -22,7 +22,7 @@ namespace Huffman.Tests
         {
             var file = File.ReadAllText($"Test Files\\{filename}");
 
-            _testOutputHelper.WriteLine($"Original size: {file.Length:N0} bytes");
+            _testOutputHelper.WriteLine($"Original size: {file.Length:N0} bytes.");
 
             var timer = new Stopwatch();
 
@@ -32,11 +32,11 @@ namespace Huffman.Tests
 
             timer.Stop();
 
-            _testOutputHelper.WriteLine($"Compressed size: {compressed.Length:N0} bytes");
+            _testOutputHelper.WriteLine($"Compressed size: {compressed.Length:N0} bytes.");
 
             _testOutputHelper.WriteLine($"Ratio: {(float) compressed.Length / file.Length *100:N2}%");
             
-            _testOutputHelper.WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms");
+            _testOutputHelper.WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms.");
 
             timer.Reset();
             timer.Start();
@@ -45,9 +45,9 @@ namespace Huffman.Tests
 
             timer.Stop();
 
-            _testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length}");
+            _testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length:N0} bytes.");
 
-            _testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms");
+            _testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
 
             Assert.Equal(file, decompressed);
         }

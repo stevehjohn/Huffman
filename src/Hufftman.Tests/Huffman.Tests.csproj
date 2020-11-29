@@ -21,6 +21,9 @@
     <None Update="Test Files\Great Expectations.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Test Files\Les Misérables.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Test Files\War of the Worlds.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -17,6 +17,7 @@ namespace Huffman.Tests
         [Theory]
         [InlineData("War of the Worlds.txt")]
         [InlineData("Great Expectations.txt")]
+        [InlineData("Les Misérables.txt")]
         public void File_compresses_and_decompresses(string filename)
         {
             var file = File.ReadAllText($"Test Files\\{filename}");

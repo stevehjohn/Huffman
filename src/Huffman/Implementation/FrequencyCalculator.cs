@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Huffman.Infrastructure;
 using Huffman.Models;
@@ -16,7 +17,7 @@ namespace Huffman.Implementation
     
         private static int[] CountFrequencies(string input)
         {
-            var frequencies = new int[Constants.CharSize];
+            var frequencies = new int[(int) Math.Pow(256, Constants.CharSizeInBytes) - 1];
 
             foreach (var c in input)
             {
@@ -30,7 +31,7 @@ namespace Huffman.Implementation
         {
             var frequencies = new Dictionary<char, int>();
 
-            for (var i = 0; i < Constants.CharSize; i++)
+            for (var i = 0; i < (int) Math.Pow(256, Constants.CharSizeInBytes) - 1; i++)
             {
                 if (input[i] > 0)
                 {

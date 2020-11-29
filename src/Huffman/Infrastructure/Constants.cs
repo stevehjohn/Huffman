@@ -2,6 +2,6 @@
 {
     public class Constants
     {
-        public const int CharSize = 65535;
+        public const int CharSizeInBytes = 2;
     }
 }

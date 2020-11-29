@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -18,17 +19,27 @@ namespace Huffman.Tests
         {
             var file = File.ReadAllText("Test Files\\War of the Worlds.txt");
 
-            _testOutputHelper.WriteLine($"Original size: {file.Length}");
+            _testOutputHelper.WriteLine($"Original size: {file.Length:N0} bytes");
+
+            var timer = new Stopwatch();
+
+            timer.Start();
 
             var compressed = Compression.Compress(file);
 
-            _testOutputHelper.WriteLine($"Compressed size: {compressed.Length}");
+            timer.Stop();
 
-            var decompressed = Compression.Decompress(compressed);
+            _testOutputHelper.WriteLine($"Compressed size: {compressed.Length:N0} bytes");
             
-            _testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length}");
+            _testOutputHelper.WriteLine($"Time taken: {timer.ElapsedMilliseconds:N0} ms");
 
-            Assert.Equal(file, decompressed);
+            _testOutputHelper.WriteLine($"Ratio: {(float) compressed.Length / file.Length *100:N2}%");
+
+            //var decompressed = Compression.Decompress(compressed);
+            
+            //_testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length}");
+
+            //Assert.Equal(file, decompressed);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Huffman.Implementation
+﻿using System.Linq;
+
+namespace Huffman.Implementation
 {
     public class Compressor
     {
@@ -13,7 +15,7 @@
 
         public byte[] Compress(string input)
         {
-            var frequencies = _frequencyCalculator.GetFrequencies(input);
+            var frequencies = _frequencyCalculator.GetFrequencies(input).ToList();
 
             _huffmanTree.Build(frequencies);
 
@@ -24,7 +26,13 @@
                 blob.Append(_huffmanTree.GetPath(character));
             }
 
-            return blob.ToByteArray();
+            var data = new CompressedData
+                       {
+                           Data = blob.ToByteArray(),
+                           Frequencies = frequencies
+                       };
+
+            return data.Save();
         }
     }
 }

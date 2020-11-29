@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Huffman.Implementation
 {
@@ -6,7 +7,9 @@ namespace Huffman.Implementation
     {
         private readonly FrequencyCalculator _frequencyCalculator;
         private readonly HuffmanTree _huffmanTree;
-        
+
+        private Dictionary<char, string> _pathCache;
+
         public Compressor()
         {
             _frequencyCalculator = new FrequencyCalculator();
@@ -21,9 +24,24 @@ namespace Huffman.Implementation
 
             var blob = new Blob();
 
+            _pathCache = new Dictionary<char, string>();
+            
             foreach (var character in input)
             {
-                blob.Append(_huffmanTree.GetPath(character));
+                _pathCache.TryGetValue(character, out var path);
+
+                if (path == null)
+                {
+                    path = _huffmanTree.GetPath(character);
+
+                    _pathCache.Add(character, path);
+
+                    blob.Append(path);
+                }
+                else
+                {
+                    blob.Append(path);
+                }
             }
 
             var data = new CompressedData

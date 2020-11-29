@@ -31,13 +31,20 @@ namespace Huffman.Tests
 
             _testOutputHelper.WriteLine($"Compressed size: {compressed.Length:N0} bytes");
             
-            _testOutputHelper.WriteLine($"Time taken: {timer.ElapsedMilliseconds:N0} ms");
+            _testOutputHelper.WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms");
 
             _testOutputHelper.WriteLine($"Ratio: {(float) compressed.Length / file.Length *100:N2}%");
 
+            //timer.Reset();
+            //timer.Start();
+
             //var decompressed = Compression.Decompress(compressed);
-            
+
+            //timer.Stop();
+
             //_testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length}");
+
+            //_testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms");
 
             //Assert.Equal(file, decompressed);
         }

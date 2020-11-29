@@ -16,7 +16,11 @@ namespace Huffman
 
         public static string Decompress(byte[] input)
         {
-            throw new NotImplementedException();
+            var decompressor = new Decompressor();
+
+            var result = decompressor.Decompress(input);
+
+            return result;
         }
     }
 }

@@ -15,29 +15,42 @@ namespace Huffman.Implementation
         {
             var frequencies = Frequencies.ToList();
 
-            var frequencyTable = new int[frequencies.Count * 2];
+            var frequencyTable = new byte[frequencies.Count * 8];
 
             var count = 0;
 
             foreach (var item in frequencies)
             {
-                frequencyTable[count] = item.Frequency;
-                frequencyTable[count + 1] = item.Character;
+                Buffer.BlockCopy(BitConverter.GetBytes(item.Frequency), 0, frequencyTable, count * 8, 4);
+                Buffer.BlockCopy(BitConverter.GetBytes((int) item.Character), 0, frequencyTable, count * 8 + 4, 4);
 
-                count += 2;
+                count++;
             }
 
             var data = new byte[4 + frequencyTable.Length * 4 + Data.Length];
 
-            Buffer.BlockCopy(new [] { frequencyTable.Length }, 0, data, 0, 4);
-            Buffer.BlockCopy(frequencyTable, 0, data, 4, frequencyTable.Length * 4);
-            Buffer.BlockCopy(Data, 0, data, 4 + frequencyTable.Length * 4, Data.Length);
+            Buffer.BlockCopy(BitConverter.GetBytes(frequencies.Count), 0, data, 0, 4);
+            Buffer.BlockCopy(frequencyTable, 0, data, 4, frequencyTable.Length);
+            Buffer.BlockCopy(Data, 0, data, 4 + frequencyTable.Length, Data.Length);
 
             return data;
         }
 
         public void Load(byte[] data)
         {
+            var frequencies = new List<CharacterFrequency>();
+
+            var frequencyCount = BitConverter.ToInt32(data, 0);
+
+            for (var i = 0; i < frequencyCount * 8; i += 8)
+            {
+                var frequency = BitConverter.ToInt32(data, 4 + i);
+                var character = (char) BitConverter.ToInt32(data, 8 + i);
+
+                frequencies.Add(new CharacterFrequency { Frequency = frequency, Character = character });
+            }
+
+            Frequencies = frequencies;
         }
     }
 }

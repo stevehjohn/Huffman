@@ -43,16 +43,13 @@ namespace Huffman.Implementation
         private TP GetPriorityPropertyValue(T input)
         {
             var value = _priorityProperty.GetValue(input);
-
-            try
+            
+            if (value is TP)
             {
-                // ReSharper disable once PossibleNullReferenceException - I am catching it!
                 return (TP) value;
             }
-            catch
-            {
-                throw new InvalidCastException($"Cannot cast priority property {_priorityProperty.Name} to {typeof(TP).Name}.");
-            }
+
+            throw new InvalidCastException($"Cannot cast priority property {_priorityProperty.Name} to {typeof(TP).Name}.");
         }
     }
 }

@@ -57,10 +57,10 @@ namespace Huffman.Console.Handlers
                 innerHtml = innerHtml.Replace("{left}", ProcessNode(node.Left));
             }
 
-            if (node.Right != null)
-            {
-                innerHtml = innerHtml.Replace("{right}", ProcessNode(node.Right));
-            }
+            //if (node.Right != null)
+            //{
+            //    innerHtml = innerHtml.Replace("{right}", ProcessNode(node.Right));
+            //}
 
             return innerHtml;
         }

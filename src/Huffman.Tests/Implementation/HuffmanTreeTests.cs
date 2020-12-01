@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using Huffman.Implementation;
 using Huffman.Models;
 using Xunit;
 using Xunit.Abstractions;
-using Xunit.Sdk;
 
 namespace Huffman.Tests.Implementation
 {
@@ -55,28 +53,6 @@ namespace Huffman.Tests.Implementation
         public void GetPath_returns_expected_path(char character, string expected)
         {
             Assert.Equal(expected, _tree.GetPath(character));
-        }
-
-        [Theory]
-        [InlineData("A Tale of Two Cities.txt")]
-        [InlineData("Frankenstein or the Modern Prometheus.txt")]
-        [InlineData("Great Expectations.txt")]
-        [InlineData("Les Misérables.txt")]
-        [InlineData("Pride and Prejudice.txt")]
-        [InlineData("War of the Worlds.txt")]
-        public void Visualise_tree(string filename)
-        {
-            var data = File.ReadAllText($"Test Files\\{filename}");
-
-            var frequencyCalculator = new FrequencyCalculator();
-
-            var frequencies = frequencyCalculator.GetFrequencies(data);
-
-            var tree = new HuffmanTree();
-
-            tree.Build(frequencies);
-
-            _testOutputHelper.WriteLine(tree.ToString());
         }
 
         private IEnumerable<CharacterFrequency> GetFrequencies()

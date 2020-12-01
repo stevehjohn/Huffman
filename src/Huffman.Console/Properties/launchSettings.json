@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Huffman.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "visualise -f \"..\\..\\..\\..\\Huffman.Tests\\Test Files\\Les Misérables.txt\""
+    }
+  }
+}

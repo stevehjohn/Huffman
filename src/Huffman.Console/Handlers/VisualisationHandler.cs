@@ -21,7 +21,7 @@ namespace Huffman.Console.Handlers
 
         public void Execute()
         {
-            var file = File.ReadAllText(_options.FileName);
+            var file = "This is a simple text string to test things."; //File.ReadAllText(_options.FileName);
 
             var frequencyCalculator = new FrequencyCalculator();
 
@@ -32,6 +32,8 @@ namespace Huffman.Console.Handlers
             tree.Build(frequencies);
 
             _visualisation = File.ReadAllText("Supporting Files\\Template.html");
+
+            _visualisation = _visualisation.Replace("{document}", _options.FileName);
 
             _visualisation = _visualisation.Replace("{css}", File.ReadAllText("Supporting Files\\Styles.css"));
 

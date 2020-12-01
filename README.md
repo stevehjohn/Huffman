@@ -18,9 +18,9 @@ Here is the performance on my 2020 Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz Mac
 Original size: 792,968 bytes.
 Compressed size: 454,568 bytes.
 Ratio: 57.32%
-Time taken to compress: 92 ms.
+Time taken to compress: 94 ms.
 Decompressed size: 792,968 bytes.
-Time taken to decompress: 81 ms.
+Time taken to decompress: 82 ms.
 ```
 
 - Frankenstein or the Modern Prometheus
@@ -29,9 +29,9 @@ Time taken to decompress: 81 ms.
 Original size: 448,844 bytes.
 Compressed size: 253,295 bytes.
 Ratio: 56.43%
-Time taken to compress: 66 ms.
+Time taken to compress: 52 ms.
 Decompressed size: 448,844 bytes.
-Time taken to decompress: 47 ms.
+Time taken to decompress: 46 ms.
 ```
 
 - Great Expectations
@@ -40,9 +40,9 @@ Time taken to decompress: 47 ms.
 Original size: 1,035,187 bytes.
 Compressed size: 595,235 bytes.
 Ratio: 57.50%
-Time taken to compress: 197 ms.
+Time taken to compress: 128 ms.
 Decompressed size: 1,035,187 bytes.
-Time taken to decompress: 185 ms.
+Time taken to decompress: 111 ms.
 ```
 
 - Les Misérables
@@ -51,9 +51,9 @@ Time taken to decompress: 185 ms.
 Original size: 3,325,127 bytes.
 Compressed size: 1,921,391 bytes.
 Ratio: 57.78%
-Time taken to compress: 566 ms.
+Time taken to compress: 398 ms.
 Decompressed size: 3,325,127 bytes.
-Time taken to decompress: 492 ms.
+Time taken to decompress: 368 ms.
 ```
 
 - Pride and Prejudice
@@ -62,9 +62,9 @@ Time taken to decompress: 492 ms.
 Original size: 790,334 bytes.
 Compressed size: 432,705 bytes.
 Ratio: 54.75%
-Time taken to compress: 88 ms.
+Time taken to compress: 98 ms.
 Decompressed size: 790,334 bytes.
-Time taken to decompress: 88 ms.
+Time taken to decompress: 78 ms.
 ```
 
 - War of the Worlds
@@ -73,9 +73,9 @@ Time taken to decompress: 88 ms.
 Original size: 363,744 bytes.
 Compressed size: 207,483 bytes.
 Ratio: 57.04%
-Time taken to compress: 125 ms.
+Time taken to compress: 45 ms.
 Decompressed size: 363,744 bytes.
-Time taken to decompress: 119 ms.
+Time taken to decompress: 40 ms.
 ```
 
 Seems to pretty much hover around the 57% mark.

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Huffman.Models;
@@ -74,6 +75,16 @@ namespace Huffman.Implementation
             }
 
             return path.ToString();
+        }
+
+        public override string ToString()
+        {
+            var output = new StringBuilder();
+
+            output.AppendLine($"{Root.Frequency}");
+            output.AppendLine("┃");
+
+            return output.ToString();
         }
     }
 }

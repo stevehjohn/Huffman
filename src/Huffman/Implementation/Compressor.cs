@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Huffman.Implementation
@@ -25,7 +26,7 @@ namespace Huffman.Implementation
             var blob = new Blob();
 
             _pathCache = new Dictionary<char, string>();
-            
+
             foreach (var character in input)
             {
                 _pathCache.TryGetValue(character, out var path);

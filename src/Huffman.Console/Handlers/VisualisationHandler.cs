@@ -52,15 +52,13 @@ namespace Huffman.Console.Handlers
         {
             var innerHtml = NodeTemplate.Replace("{content}", node.Frequency.ToString());
 
-            if (node.Left != null)
-            {
-                innerHtml = innerHtml.Replace("{left}", ProcessNode(node.Left));
-            }
+            innerHtml = innerHtml.Replace("{left}", node.Left != null 
+                ? ProcessNode(node.Left) 
+                : string.Empty);
 
-            //if (node.Right != null)
-            //{
-            //    innerHtml = innerHtml.Replace("{right}", ProcessNode(node.Right));
-            //}
+            innerHtml = innerHtml.Replace("{right}", node.Right != null 
+                ? ProcessNode(node.Right) 
+                : string.Empty);
 
             return innerHtml;
         }

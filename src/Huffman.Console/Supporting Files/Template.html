@@ -15,6 +15,26 @@
                 };
             };
         };
+        var prevMouseX = 0;
+        var prevMouseY = 0;
+        var dragging = false;
+        document.onmousedown = (e) => {
+            prevMouseX = e.screenX;
+            prevMouseY = e.screenY;
+            dragging = true;
+        };
+        document.onmousemove = (e) => {
+            if (dragging) {
+                var dX = prevMouseX - e.screenX;
+                prevMouseX = e.screenX;
+                var dY = prevMouseY - e.screenY;
+                prevMouseY = e.screenY;
+                window.scrollBy(dX, dY);
+            }
+        };
+        document.onmouseup = () => {
+            dragging = false;
+        };
     </script>
 </head>
 <body>
@@ -25,14 +45,4 @@
         {nodes}
     </div>
 </body>
-<script>
-    document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-            var w = parseInt(window.getComputedStyle(document.getElementsByClassName('tree')[0]).width);
-            if (w > window.innerWidth) {
-                window.scrollBy((w - window.innerWidth) / 2, 0);
-            };
-        };
-    };
-</script>
 </html>

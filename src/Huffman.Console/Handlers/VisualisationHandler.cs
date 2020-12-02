@@ -52,6 +52,11 @@ namespace Huffman.Console.Handlers
                               FileName = tempFile,
                               UseShellExecute = true
                           });
+
+            if (! string.IsNullOrWhiteSpace(_options.OutputFileName))
+            {
+                File.WriteAllText(_options.OutputFileName, _visualisation);
+            }
         }
 
         private static string ProcessNode(HuffmanNode node)

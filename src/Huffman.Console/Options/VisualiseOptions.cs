@@ -9,5 +9,8 @@ namespace Huffman.Console.Options
     {
         [Option('f', "filename", Required = true, HelpText = "Filename of the document to visualise.")]
         public string FileName { get; set; }
+
+        [Option('o', "output", Required = false, HelpText = "File to save the visualisation to.")]
+        public string OutputFileName { get; set; }
     }
 }

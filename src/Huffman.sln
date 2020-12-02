@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualisations", "Visualisa
 		..\visualisations\Great Expectations.html = ..\visualisations\Great Expectations.html
 		..\visualisations\Les Misérables.html = ..\visualisations\Les Misérables.html
 		..\visualisations\Pride and Prejudice.html = ..\visualisations\Pride and Prejudice.html
+		..\visualisations\Stevo.html = ..\visualisations\Stevo.html
 		..\visualisations\War of the Worlds.html = ..\visualisations\War of the Worlds.html
 	EndProjectSection
 EndProject

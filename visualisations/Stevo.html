@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Stevo</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Google Sans', arial, verdana, tahoma;
+}
+
+body {
+    background-color: #e0e0e0;
+    cursor: all-scroll;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.tree {
+    width: max-content;
+}
+
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree li::before, .tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 1px solid #fff;
+    width: 50%;
+    height: 20px;
+}
+
+.tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid #fff;
+}
+
+.tree li:only-child::after, .tree li:only-child::before { display: none; }
+
+.tree li:only-child { padding-top: 0; }
+
+.tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
+
+.tree li:last-child::before {
+    border-right: 1px solid #fff;
+    border-radius: 0 5px 0 0;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+}
+
+.tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+}
+
+.tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid #fff;
+    width: 0;
+    height: 20px;
+}
+
+.tree li a {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #666;
+    font-size: 11px;
+    display: inline-block;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree li a:hover, .tree li a:hover + ul li a {
+    background: #c8e4f8;
+    color: #000;
+    border: 1px solid #94a0b4;
+}
+
+.tree li a:hover + ul li::after,
+.tree li a:hover + ul li::before,
+.tree li a:hover + ul::before,
+.tree li a:hover + ul ul::before { border-color: #94a0b4; }
+
+.tree li a.leaf {
+    background-color: #b0d0b0;
+}
+
+.character {
+    font-size: 20px;
+}
+
+.tooltip:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 10px;
+    left: -71px;
+    border-radius: 10px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    display: none;
+    z-index: 1;
+    font-family: 'Lucida Console', monospace;
+    width: 180px;
+}
+
+.tooltip:hover:before {
+    display: block;
+}
+    </style>
+    <script>
+        document.onreadystatechange = () => {
+            if (document.readyState === 'complete') {
+                var w = parseInt(window.getComputedStyle(document.getElementsByClassName('tree')[0]).width);
+                if (w > window.innerWidth) {
+                    window.scrollBy((w - window.innerWidth) / 2, 0);
+                };
+            };
+        };
+        var prevMouseX = 0;
+        var prevMouseY = 0;
+        var dragging = false;
+        document.onmousedown = (e) => {
+            prevMouseX = e.screenX;
+            prevMouseY = e.screenY;
+            dragging = true;
+        };
+        document.onmousemove = (e) => {
+            if (dragging) {
+                var dX = prevMouseX - e.screenX;
+                prevMouseX = e.screenX;
+                var dY = prevMouseY - e.screenY;
+                prevMouseY = e.screenY;
+                window.scrollBy(dX, dY);
+            }
+        };
+        document.onmouseup = () => {
+            dragging = false;
+        };
+    </script>
+</head>
+<body>
+    <div class="tree">
+        <div class="title">
+            Huffman Tree Visualisation for Stevo
+        </div>
+<ul><li><a href='#'>14</a><ul><li><a href='#'>6</a><ul><li><a href='#' class='leaf tooltip' data-text='00'>2<br/><span class='character'>e</span></a></li><li><a href='#'>4</a><ul><li><a href='#'>2</a><ul><li><a href='#' class='leaf tooltip' data-text='0100'>1<br/><span class='character'>H</span></a></li><li><a href='#' class='leaf tooltip' data-text='0101'>1<br/><span class='character'>J</span></a></li></ul></li><li><a href='#'>2</a><ul><li><a href='#' class='leaf tooltip' data-text='0110'>1<br/><span class='character'>S</span></a></li><li><a href='#' class='leaf tooltip' data-text='0111'>1<br/><span class='character'>h</span></a></li></ul></li></ul></li></ul></li><li><a href='#'>8</a><ul><li><a href='#'>4</a><ul><li><a href='#'>2</a><ul><li><a href='#' class='leaf tooltip' data-text='1000'>1<br/><span class='character'>n</span></a></li><li><a href='#' class='leaf tooltip' data-text='1001'>1<br/><span class='character'>o</span></a></li></ul></li><li><a href='#'>2</a><ul><li><a href='#' class='leaf tooltip' data-text='1010'>1<br/><span class='character'>t</span></a></li><li><a href='#' class='leaf tooltip' data-text='1011'>1<br/><span class='character'>u</span></a></li></ul></li></ul></li><li><a href='#'>4</a><ul><li><a href='#'>2</a><ul><li><a href='#' class='leaf tooltip' data-text='1100'>1<br/><span class='character'>v</span></a></li><li><a href='#' class='leaf tooltip' data-text='1101'>1<br/><span class='character'>w</span></a></li></ul></li><li><a href='#' class='leaf tooltip' data-text='111'>2<br/><span class='character'>' '</span></a></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</body>
+</html>

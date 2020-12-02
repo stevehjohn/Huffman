@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Test Files\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Huffman\Huffman.csproj" />
   </ItemGroup>
 

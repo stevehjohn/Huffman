@@ -25,7 +25,7 @@ namespace Huffman.Console.Handlers
 
         public void Execute()
         {
-            var file = "This is a simple text string to test things."; //File.ReadAllText(_options.FileName);
+            var file = File.ReadAllText(_options.FileName);
 
             var frequencyCalculator = new FrequencyCalculator();
 
@@ -37,7 +37,7 @@ namespace Huffman.Console.Handlers
 
             _visualisation = File.ReadAllText("Supporting Files\\Template.html");
 
-            _visualisation = _visualisation.Replace("{document}", Path.GetFileName(_options.FileName));
+            _visualisation = _visualisation.Replace("{document}", Path.GetFileNameWithoutExtension(_options.FileName));
 
             _visualisation = _visualisation.Replace("{css}", File.ReadAllText("Supporting Files\\Styles.css"));
 
@@ -58,7 +58,7 @@ namespace Huffman.Console.Handlers
         {
             var innerHtml = node.Character == '\0'
                 ? NodeTemplate.Replace("{frequency}", node.Frequency.ToString())
-                : LeafTemplate.Replace("{frequency}", node.Frequency.ToString()).Replace("{character}", node.Character.ToString());
+                : LeafTemplate.Replace("{frequency}", node.Frequency.ToString()).Replace("{character}", char.IsWhiteSpace(node.Character) ? "' '" : node.Character.ToString());
 
             innerHtml = innerHtml.Replace("{left}", node.Left != null 
                 ? ProcessNode(node.Left) 

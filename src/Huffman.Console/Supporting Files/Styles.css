@@ -1,6 +1,17 @@
 ﻿* {
     margin: 0;
     padding: 0;
+    font-family: 'Google Sans', arial, verdana, tahoma;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.tree {
+    width: max-content;
 }
 
 .tree ul {
@@ -72,7 +83,6 @@
     padding: 5px 10px;
     text-decoration: none;
     color: #666;
-    font-family: arial, verdana, tahoma;
     font-size: 11px;
     display: inline-block;
     border-radius: 5px;

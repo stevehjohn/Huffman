@@ -23,6 +23,8 @@ Decompressed size: 792,968 bytes.
 Time taken to decompress: 82 ms.
 ```
 
+[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/A%20Tale%20of%20Two%20Cities.html)
+
 - Frankenstein or the Modern Prometheus
 
 ```

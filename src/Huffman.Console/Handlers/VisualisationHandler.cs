@@ -11,16 +11,19 @@ namespace Huffman.Console.Handlers
     public class VisualisationHandler
     {
         private readonly VisualiseOptions _options;
+        private readonly HuffmanTree _tree;
 
         private string _visualisation;
         
         private const string NodeTemplate = "<li><a href='#'>{frequency}</a><ul>{left}{right}</ul></li>";
 
-        private const string LeafTemplate = "<li><a href='#' class='leaf'>{frequency}<br/><span class='character'>{character}</span></a></li>";
+        private const string LeafTemplate = "<li><a href='#' class='leaf tooltip' data-text='{path}'>{frequency}<br/><span class='character'>{character}</span></a></li>";
 
         public VisualisationHandler(VisualiseOptions options)
         {
             _options = options;
+
+            _tree = new HuffmanTree();
         }
 
         public void Execute()
@@ -31,9 +34,7 @@ namespace Huffman.Console.Handlers
 
             var frequencies = frequencyCalculator.GetFrequencies(file);
 
-            var tree = new HuffmanTree();
-
-            tree.Build(frequencies);
+            _tree.Build(frequencies);
 
             _visualisation = File.ReadAllText("Supporting Files\\Template.html");
 
@@ -41,7 +42,7 @@ namespace Huffman.Console.Handlers
 
             _visualisation = _visualisation.Replace("{css}", File.ReadAllText("Supporting Files\\Styles.css"));
 
-            _visualisation = _visualisation.Replace("{nodes}", $"<ul>{ProcessNode(tree.Root)}</ul>");
+            _visualisation = _visualisation.Replace("{nodes}", $"<ul>{ProcessNode(_tree.Root)}</ul>");
 
             var tempFile = Path.GetTempFileName().Replace(".tmp", ".html");
 
@@ -59,11 +60,13 @@ namespace Huffman.Console.Handlers
             }
         }
 
-        private static string ProcessNode(HuffmanNode node)
+        private string ProcessNode(HuffmanNode node)
         {
             var innerHtml = node.Character == '\0'
                 ? NodeTemplate.Replace("{frequency}", node.Frequency.ToString())
-                : LeafTemplate.Replace("{frequency}", node.Frequency.ToString()).Replace("{character}", char.IsWhiteSpace(node.Character) ? "' '" : node.Character.ToString());
+                : LeafTemplate.Replace("{frequency}", node.Frequency.ToString())
+                              .Replace("{character}", char.IsWhiteSpace(node.Character) ? "' '" : node.Character.ToString())
+                              .Replace("{path}", _tree.GetPath(node.Character));
 
             innerHtml = innerHtml.Replace("{left}", node.Left != null 
                 ? ProcessNode(node.Left) 

@@ -36,6 +36,8 @@ Decompressed size: 448,844 bytes.
 Time taken to decompress: 46 ms.
 ```
 
+[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Frankenstein%20or%20the%20Modern%20Prometheus.html)
+
 - Great Expectations
 
 ```
@@ -46,6 +48,8 @@ Time taken to compress: 128 ms.
 Decompressed size: 1,035,187 bytes.
 Time taken to decompress: 111 ms.
 ```
+
+[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Great%20Expectations.html)
 
 - Les Misérables
 
@@ -58,6 +62,8 @@ Decompressed size: 3,325,127 bytes.
 Time taken to decompress: 368 ms.
 ```
 
+[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Les%20Misérables.html)
+
 - Pride and Prejudice
 
 ```
@@ -69,6 +75,8 @@ Decompressed size: 790,334 bytes.
 Time taken to decompress: 78 ms.
 ```
 
+[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Pride%20and%20Prejudice.html)
+
 - War of the Worlds
 
 ```
@@ -79,5 +87,7 @@ Time taken to compress: 45 ms.
 Decompressed size: 363,744 bytes.
 Time taken to decompress: 40 ms.
 ```
+
+[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/War%20of%20the%20Worlds.html)
 
 Seems to pretty much hover around the 57% mark.

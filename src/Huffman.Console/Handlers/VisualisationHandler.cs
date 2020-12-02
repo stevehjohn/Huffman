@@ -13,6 +13,10 @@ namespace Huffman.Console.Handlers
         private readonly VisualiseOptions _options;
 
         private string _visualisation;
+        
+        private const string NodeTemplate = "<li><a href='#'>{frequency}</a><ul>{left}{right}</ul></li>";
+
+        private const string LeafTemplate = "<li><a href='#' class='leaf'>{frequency}<br/><span class='character'>{character}</span></a></li>";
 
         public VisualisationHandler(VisualiseOptions options)
         {
@@ -33,11 +37,11 @@ namespace Huffman.Console.Handlers
 
             _visualisation = File.ReadAllText("Supporting Files\\Template.html");
 
-            _visualisation = _visualisation.Replace("{document}", _options.FileName);
+            _visualisation = _visualisation.Replace("{document}", Path.GetFileName(_options.FileName));
 
             _visualisation = _visualisation.Replace("{css}", File.ReadAllText("Supporting Files\\Styles.css"));
 
-            _visualisation = _visualisation.Replace("{nodes}", ProcessNode(tree.Root));
+            _visualisation = _visualisation.Replace("{nodes}", $"<ul>{ProcessNode(tree.Root)}</ul>");
 
             var tempFile = Path.GetTempFileName().Replace(".tmp", ".html");
 
@@ -52,7 +56,9 @@ namespace Huffman.Console.Handlers
 
         private static string ProcessNode(HuffmanNode node)
         {
-            var innerHtml = NodeTemplate.Replace("{content}", node.Frequency.ToString());
+            var innerHtml = node.Character == '\0'
+                ? NodeTemplate.Replace("{frequency}", node.Frequency.ToString())
+                : LeafTemplate.Replace("{frequency}", node.Frequency.ToString()).Replace("{character}", node.Character.ToString());
 
             innerHtml = innerHtml.Replace("{left}", node.Left != null 
                 ? ProcessNode(node.Left) 
@@ -61,10 +67,8 @@ namespace Huffman.Console.Handlers
             innerHtml = innerHtml.Replace("{right}", node.Right != null 
                 ? ProcessNode(node.Right) 
                 : string.Empty);
-
+            
             return innerHtml;
         }
-
-        private const string NodeTemplate = "<ul><li><a href='#'>{content}</a>{left}{right}</li></ul>";
     }
 }

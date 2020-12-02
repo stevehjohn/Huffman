@@ -93,3 +93,11 @@
 .tree li a:hover + ul li::before,
 .tree li a:hover + ul::before,
 .tree li a:hover + ul ul::before { border-color: #94a0b4; }
+
+.leaf {
+    background-color: #b0d0b0;
+}
+
+.character {
+    font-size: 20px;
+}

@@ -6,6 +6,16 @@
     <style>
         {css}
     </style>
+    <script>
+        document.onreadystatechange = () => {
+            if (document.readyState === 'complete') {
+                var w = parseInt(window.getComputedStyle(document.getElementsByClassName('tree')[0]).width);
+                if (w > window.innerWidth) {
+                    window.scrollBy((w - window.innerWidth) / 2, 0);
+                };
+            };
+        };
+    </script>
 </head>
 <body>
     <div class="tree">
@@ -15,4 +25,14 @@
         {nodes}
     </div>
 </body>
+<script>
+    document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+            var w = parseInt(window.getComputedStyle(document.getElementsByClassName('tree')[0]).width);
+            if (w > window.innerWidth) {
+                window.scrollBy((w - window.innerWidth) / 2, 0);
+            };
+        };
+    };
+</script>
 </html>

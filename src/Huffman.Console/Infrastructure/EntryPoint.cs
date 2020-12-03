@@ -10,8 +10,9 @@ namespace Huffman.Console.Infrastructure
     {
         public static void Main(string[] arguments)
         {
-            Parser.Default.ParseArguments<VisualiseOptions>(arguments)
-                  .WithParsed(o => new VisualisationHandler(o).Execute());
+            Parser.Default.ParseArguments<VisualiseOptions, BenchmarkOptions>(arguments)
+                  .WithParsed<VisualiseOptions>(o => new VisualisationHandler(o).Execute())
+                  .WithParsed<BenchmarkOptions>(o => new BenchmarkHandler(o).Execute());
         }
     }
 }

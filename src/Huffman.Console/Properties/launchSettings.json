@@ -2,7 +2,7 @@
   "profiles": {
     "Huffman.Console": {
       "commandName": "Project",
-      "commandLineArgs": "visualise -f \"..\\..\\..\\..\\Huffman.Tests\\Test Files\\Stevo.txt\""
+      "commandLineArgs": "visualise -f \"..\\..\\..\\..\\Huffman.Tests\\Test Files\\War of the Worlds.txt\""
     }
   }
 }

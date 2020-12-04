@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace Huffman.Implementation
 {
@@ -19,27 +20,31 @@ namespace Huffman.Implementation
 
             _huffmanTree.Build(data.Frequencies);
 
-            var output = new StringBuilder();
+            var originalLength = data.OriginalLength;
+
+            var output = new char[originalLength];
 
             var bits = new BitReader(data.Data);
 
             var node = _huffmanTree.Root;
 
-            var originalLength = data.OriginalLength;
+            var position = 0;
 
-            while (output.Length < originalLength)
+            while (position < originalLength)
             {
                 if (node.Character != '\0')
                 {
-                    output.Append(node.Character);
+                    output[position] = node.Character;
 
                     node = _huffmanTree.Root;
+
+                    position++;
                 }
 
                 node = bits.Read() ? node.Right : node.Left;
             }
 
-            return output.ToString();
+            return new string(output);
         }
     }
 }

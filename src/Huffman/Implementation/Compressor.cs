@@ -10,7 +10,7 @@ namespace Huffman.Implementation
         private readonly FrequencyCalculator _frequencyCalculator;
         private readonly HuffmanTree _huffmanTree;
 
-        private Dictionary<char, string> _pathCache;
+        private string[] _pathCache;
 
         public Compressor()
         {
@@ -47,9 +47,9 @@ namespace Huffman.Implementation
 
         private void BuildPathCache(List<CharacterFrequency> frequencies)
         {
-            _pathCache = new Dictionary<char, string>();
+            _pathCache = new string[(int) Math.Pow(256, Constants.CharSizeInBytes) - 1];
 
-            frequencies.ForEach(f => _pathCache.Add(f.Character, _huffmanTree.GetPath(f.Character)));
+            frequencies.ForEach(f => _pathCache[f.Character] = _huffmanTree.GetPath(f.Character));
         }
     }
 }

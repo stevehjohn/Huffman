@@ -26,8 +26,10 @@ namespace Huffman.Implementation
 
             _pathCache = new Dictionary<char, string>();
 
-            foreach (var character in input)
+            for (var i = 0; i < input.Length; i++)
             {
+                var character = input[i];
+
                 _pathCache.TryGetValue(character, out var path);
 
                 if (path == null)

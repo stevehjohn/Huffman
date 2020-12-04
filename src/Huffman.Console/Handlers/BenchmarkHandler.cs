@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Huffman.Console.Options;
@@ -72,6 +73,11 @@ namespace Huffman.Console.Handlers
 
             WriteLine($"Uncompressed file size: {file.Length:N0} bytes.");
 
+            if (compressed == null)
+            {
+                throw new NullReferenceException("Compressed output is null.");
+            }
+
             WriteLine($"Compressed file size:   {compressed.Length:N0} bytes.");
 
             WriteLine();
@@ -79,6 +85,11 @@ namespace Huffman.Console.Handlers
             WriteLine($"Ratio: {(float) compressed.Length / file.Length * 100:N2}%");
 
             WriteLine();
+
+            if (decompressed == null)
+            {
+                throw new NullReferenceException("Decompressed output is null.");
+            }
 
             WriteLine($"Decompressed and source files {(file.Length == decompressed.Length ? "are" : "ARE NOT")} the same size.");
 

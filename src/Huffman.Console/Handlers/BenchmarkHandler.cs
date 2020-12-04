@@ -18,37 +18,84 @@ namespace Huffman.Console.Handlers
 
         public void Execute()
         {
+            var file = File.ReadAllText(_options.FileName);
+
+            var timer = new Stopwatch();
+
+            var averageCompression = 0L;
+
+            byte[] compressed = null;
+
+            WriteLine();
+
+            for (var i = 0; i < _options.Cycles; i++)
+            {
+                timer.Start();
+
+                compressed = Compression.Compress(file);
+
+                timer.Stop();
+
+                WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms.");
+
+                averageCompression += timer.ElapsedMilliseconds;
+
+                timer.Reset();
+            }
+
+            WriteLine();
+
+            var averageDecompression = 0L;
+
+            string decompressed = null;
+
+            for (var i = 0; i < _options.Cycles; i++)
+            {
+                timer.Start();
+
+                decompressed = Compression.Decompress(compressed);
+
+                timer.Stop();
+
+                WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
+
+                averageDecompression += timer.ElapsedMilliseconds;
+
+                timer.Reset();
+            }
+
+            WriteLine();
+            
             WriteLine($"Filename: {Path.GetFileNameWithoutExtension(_options.FileName)}");
 
-            var file = File.ReadAllText(_options.FileName);
+            WriteLine();
 
             WriteLine($"Uncompressed file size: {file.Length:N0} bytes.");
 
-            var timer = new Stopwatch();
-            
-            timer.Start();
+            WriteLine($"Compressed file size:   {compressed.Length:N0} bytes.");
 
-            var compressed = Compression.Compress(file);
+            WriteLine();
 
-            timer.Stop();
+            WriteLine($"Ratio: {(float) compressed.Length / file.Length * 100:N2}%");
 
-            WriteLine($"Compressed file size: {compressed.Length:N0} bytes.");
+            WriteLine();
 
-            WriteLine($"Ratio: {(float) compressed.Length / file.Length *100:N2}%");
+            WriteLine($"Decompressed and source files {(file.Length == decompressed.Length ? "are" : "ARE NOT")} the same size.");
 
-            WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms.");
+            WriteLine();
 
-            timer.Reset();
+            WriteLine($"Average time taken to compress over {_options.Cycles} cycle{(_options.Cycles > 1 ? "s" : string.Empty)}:   {averageCompression / _options.Cycles:N0} ms.");
 
-            timer.Start();
+            WriteLine($"Average time taken to decompress over {_options.Cycles} cycle{(_options.Cycles > 1 ? "s" : string.Empty)}: {averageDecompression / _options.Cycles:N0} ms.");
 
-            var decompressed = Compression.Decompress(compressed);
+            if (Debugger.IsAttached)
+            {
+                WriteLine();
 
-            timer.Stop();
+                WriteLine("Press any key to exit.");
 
-            WriteLine($"Decompressed file size: {decompressed.Length:N0} bytes.");
-
-            WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
+                ReadKey();
+            }
         }
     }
 }

@@ -44,9 +44,9 @@ namespace Huffman.Implementation
         {
             var value = _priorityProperty.GetValue(input);
             
-            if (value is TP)
+            if (value is TP tp)
             {
-                return (TP) value;
+                return tp;
             }
 
             throw new InvalidCastException($"Cannot cast priority property {_priorityProperty.Name} to {typeof(TP).Name}.");

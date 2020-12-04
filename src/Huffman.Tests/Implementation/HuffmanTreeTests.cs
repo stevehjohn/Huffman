@@ -2,19 +2,15 @@
 using Huffman.Implementation;
 using Huffman.Models;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Huffman.Tests.Implementation
 {
     public class HuffmanTreeTests
     {
-        private readonly ITestOutputHelper _testOutputHelper;
         private readonly HuffmanTree _tree;
 
-        public HuffmanTreeTests(ITestOutputHelper testOutputHelper)
+        public HuffmanTreeTests()
         {
-            _testOutputHelper = testOutputHelper;
-
             _tree = new HuffmanTree();
 
             var frequencies = GetFrequencies();
@@ -55,7 +51,7 @@ namespace Huffman.Tests.Implementation
             Assert.Equal(expected, _tree.GetPath(character));
         }
 
-        private IEnumerable<CharacterFrequency> GetFrequencies()
+        private static IEnumerable<CharacterFrequency> GetFrequencies()
         {
             return new[]
                    {

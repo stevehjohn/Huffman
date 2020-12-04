@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace Huffman.Implementation
+﻿namespace Huffman.Implementation
 {
     public class Decompressor
     {

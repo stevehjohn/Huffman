@@ -1,5 +1,4 @@
-﻿using System;
-using Huffman.Implementation;
+﻿using Huffman.Implementation;
 using Xunit;
 
 namespace Huffman.Tests.Implementation

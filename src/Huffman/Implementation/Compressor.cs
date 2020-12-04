@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Huffman.Models;
 
 namespace Huffman.Implementation
 {
@@ -24,26 +26,13 @@ namespace Huffman.Implementation
 
             var blob = new Blob();
 
-            _pathCache = new Dictionary<char, string>();
+            BuildPathCache(frequencies);
 
             for (var i = 0; i < input.Length; i++)
             {
                 var character = input[i];
 
-                _pathCache.TryGetValue(character, out var path);
-
-                if (path == null)
-                {
-                    path = _huffmanTree.GetPath(character);
-
-                    _pathCache.Add(character, path);
-
-                    blob.Append(path);
-                }
-                else
-                {
-                    blob.Append(path);
-                }
+                blob.Append(_pathCache[character]);
             }
 
             var data = new CompressedData
@@ -54,6 +43,13 @@ namespace Huffman.Implementation
                        };
 
             return data.Save();
+        }
+
+        private void BuildPathCache(List<CharacterFrequency> frequencies)
+        {
+            _pathCache = new Dictionary<char, string>();
+
+            frequencies.ForEach(f => _pathCache.Add(f.Character, _huffmanTree.GetPath(f.Character)));
         }
     }
 }

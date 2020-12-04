@@ -2,7 +2,7 @@
 
 ## Les Misérables
 
-Average taken over 20 compression decompression cycles, in Debug build with debugger attached. 
+Average taken over 20 each of compression and decompression, in Debug build with debugger attached. 
 This is to purposefully slow it down so that efficiency improvements are more noticable.
 
 ### First Benchmark

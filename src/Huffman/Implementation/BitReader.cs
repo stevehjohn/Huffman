@@ -3,7 +3,8 @@
     public class BitReader
     {
         private readonly byte[] _data;
-        private int _position = -1;
+        private int _bytePosition = 0;
+        private int _bitPosition = 7;
 
         public BitReader(byte[] data)
         {
@@ -12,9 +13,17 @@
 
         public bool Read()
         {
-            _position++;
+            var bit = (_data[_bytePosition] & (byte) (1 << _bitPosition)) > 0;
 
-            return (_data[_position / 8] & (byte) (1 << (7 - _position % 8))) > 0;
+            _bitPosition--;
+
+            if (_bitPosition == -1)
+            {
+                _bitPosition = 7;
+                _bytePosition++;
+            }
+
+            return bit;
         }
     }
 }

@@ -68,3 +68,14 @@ https://github.com/stevehjohn/Huffman/commit/4dfd629f3aae1d5da4c2a849576038db81d
 Compression:   298 ms ↓ ~2.9%
 Decompression: 327 ms
 ```
+
+### Seventh Benchmark - Targeting Decompression
+
+Replace `StringBuilder` with `char[]`.
+
+https://github.com/stevehjohn/Huffman/commit/84cab7ab81a0c966abe8b639a8fa08e54480416a
+
+```
+Compression:   298 ms
+Decompression: 315 ms ↓ ~3.7%
+```

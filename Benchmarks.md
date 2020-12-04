@@ -27,6 +27,8 @@ Decompression: 355 ms
 
 Removing division and modulus from Blob class.
 
+https://github.com/stevehjohn/Huffman/commit/f3f3e26fbc06a8a656b1a4def72c38fb95b42bc9
+
 ```
 Compression:   373 ms
 Decompression: 362 ms

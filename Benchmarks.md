@@ -33,3 +33,12 @@ https://github.com/stevehjohn/Huffman/commit/f3f3e26fbc06a8a656b1a4def72c38fb95b
 Compression:   373 ms
 Decompression: 362 ms
 ```
+
+### Fourth Benchmark
+
+Replacing List<byte> with byte[] in Blob class.
+
+```
+Compression:   300 ms
+Decompression: 366 ms
+```

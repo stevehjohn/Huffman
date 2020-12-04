@@ -36,11 +36,22 @@ Decompression: 362 ms
 
 ### Fourth Benchmark
 
-Replacing List&lt;byte&gt; with byte[] in Blob class.
+Replacing `List&lt;byte&gt;` with `byte[]` in Blob class.
 
 https://github.com/stevehjohn/Huffman/commit/d59b6940013c5501fbf5a4132f0ea1ac3345ef43
 
 ```
 Compression:   300 ms
 Decompression: 366 ms
+```
+
+### Fifth Benchmark
+
+Removing calls to `OriginalLength` property.
+
+https://github.com/stevehjohn/Huffman/commit/df95e5f2761aa6bd3ade70ad8c7385b6ea48c362
+
+```
+Compression:   307 ms
+Decompression: 327 ms
 ```

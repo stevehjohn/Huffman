@@ -5,6 +5,8 @@
 Average taken over 20 each of compression and decompression, in Debug build with debugger attached. 
 This is to purposefully slow it down so that efficiency improvements are more noticable.
 
+Percentage improvement figures are between current and previous benchmark rather than current and first.
+
 ### First Benchmark
 
 ```

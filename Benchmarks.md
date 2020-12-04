@@ -58,7 +58,7 @@ Compression:   307 ms
 Decompression: 327 ms ↓ ~10.7%
 ```
 
-## Sixth Benchmark - Targeting Compression
+### Sixth Benchmark - Targeting Compression
 
 Replace `foreach` loop with `for` loop over input string.
 

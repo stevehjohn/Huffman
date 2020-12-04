@@ -3,7 +3,7 @@
     public class BitReader
     {
         private readonly byte[] _data;
-        private int _bytePosition = 0;
+        private int _bytePosition;
         private int _bitPosition = 7;
 
         public BitReader(byte[] data)

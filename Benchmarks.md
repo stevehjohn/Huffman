@@ -79,3 +79,14 @@ https://github.com/stevehjohn/Huffman/commit/84cab7ab81a0c966abe8b639a8fa08e5448
 Compression:   298 ms
 Decompression: 315 ms ↓ ~3.7%
 ```
+
+### Eighth Benchmark - Targeting Compression
+
+Pre-build path cache.
+
+https://github.com/stevehjohn/Huffman/commit/35c38a44d6c7b57882ee742893ab8c109870fb22
+
+```
+Compression:   291 ms ↓ ~2.3%
+Decompression: 315 ms
+```

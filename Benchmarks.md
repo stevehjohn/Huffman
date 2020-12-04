@@ -57,3 +57,14 @@ https://github.com/stevehjohn/Huffman/commit/df95e5f2761aa6bd3ade70ad8c7385b6ea4
 Compression:   307 ms
 Decompression: 327 ms ↓ ~10.7%
 ```
+
+## Sixth Benchmark - Targeting Compression
+
+Replace `foreach` loop with `for` loop over input string.
+
+https://github.com/stevehjohn/Huffman/commit/4dfd629f3aae1d5da4c2a849576038db81d7bfcd
+
+```
+Compression:   298 ms ↓ ~2.9%
+Decompression: 327 ms
+```

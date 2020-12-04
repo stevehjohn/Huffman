@@ -22,3 +22,12 @@ https://github.com/stevehjohn/Huffman/commit/6771779f9f2177d2514f6a7323e992cdde1
 Compression:   384 ms
 Decompression: 355 ms
 ```
+
+### Third Benchmark
+
+Removing division and modulus from Blob class.
+
+```
+Compression:   373 ms
+Decompression: 362 ms
+```

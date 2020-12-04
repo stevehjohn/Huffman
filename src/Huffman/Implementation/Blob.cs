@@ -6,12 +6,11 @@ namespace Huffman.Implementation
     public class Blob
     {
         private readonly List<byte> _bytes;
-        private int _position;
+        private int _bitPosition = 7;
 
         public Blob()
         {
             _bytes = new List<byte>();
-            _position = 0;
         }
 
         public void Append(string bits)
@@ -23,17 +22,22 @@ namespace Huffman.Implementation
 
             foreach (var bit in bits)
             {
-                if (_position % 8 == 0)
+                if (_bitPosition == 7)
                 {
                     _bytes.Add(0);
                 }
 
                 if (bit == '1')
                 {
-                    _bytes[^1] = (byte) (_bytes[^1] | (byte) (1 << (7 - _position % 8)));
+                    _bytes[^1] = (byte) (_bytes[^1] | (byte) (1 << _bitPosition));
                 }
 
-                _position++;
+                _bitPosition--;
+
+                if (_bitPosition == -1)
+                {
+                    _bitPosition = 7;
+                }
             }
         }
 

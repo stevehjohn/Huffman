@@ -36,7 +36,9 @@ Decompression: 362 ms
 
 ### Fourth Benchmark
 
-Replacing List<byte> with byte[] in Blob class.
+Replacing List&lt;byte&gt; with byte[] in Blob class.
+
+https://github.com/stevehjohn/Huffman/commit/d59b6940013c5501fbf5a4132f0ea1ac3345ef43
 
 ```
 Compression:   300 ms

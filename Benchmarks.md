@@ -90,3 +90,14 @@ https://github.com/stevehjohn/Huffman/commit/35c38a44d6c7b57882ee742893ab8c10987
 Compression:   291 ms ↓ ~2.3%
 Decompression: 315 ms
 ```
+
+### Ninth Benchmark - Targeting Compression
+
+Pre-build path cache into array rather than dictionary.
+
+https://github.com/stevehjohn/Huffman/commit/e2651dd774fcff428542ad1eb10fb3ba1c479480
+
+```
+Compression:   275 ms ↓ ~5.5%
+Decompression: 315 ms
+```

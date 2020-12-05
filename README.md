@@ -2,6 +2,8 @@
 
 Bored during Covid, so doing a Huffman encoding routine for fun (yes, I'm an interminable nerd).
 
+![Huffman Tree Visualisation for Stevo](https://github.com/stevehjohn/Huffman/blob/master/Illustration.png "Huffman Tree Visualisation for Stevo")
+
 ## Notes
 
 For me, creating the Huffman tree was much easier to reason about when using a Priority Queue.
@@ -59,7 +61,7 @@ Time taken to decompress: 111 ms.
 
 [Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Great%20Expectations.html)
 
-- Les Misérables
+- Les Misï¿½rables
 
 ```
 Original size: 3,325,127 bytes.
@@ -70,7 +72,7 @@ Decompressed size: 3,325,127 bytes.
 Time taken to decompress: 368 ms.
 ```
 
-[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Les%20Misérables.html)
+[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Les%20Misï¿½rables.html)
 
 - Pride and Prejudice
 

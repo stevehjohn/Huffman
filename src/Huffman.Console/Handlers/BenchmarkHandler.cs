@@ -97,7 +97,10 @@ namespace Huffman.Console.Handlers
                 throw new NullReferenceException("Decompressed output is null.");
             }
 
-            WriteLine($"Decompressed and source files {(file.Length == decompressed.Length ? "are" : "ARE NOT")} the same size.");
+            if (file.Length != decompressed.Length)
+            {
+                WriteLine($"Decompressed and source files ARE NOT the same size.");
+            }
 
             WriteLine();
 

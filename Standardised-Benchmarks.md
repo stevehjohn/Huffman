@@ -12,8 +12,6 @@ Compressed file size:   454,568 bytes.
 
 Ratio: 57.32%
 
-Decompressed and source files are the same size.
-
 Average time taken to compress over 100 cycles:   49 ms.
 Average time taken to decompress over 100 cycles: 71 ms.
 
@@ -24,8 +22,6 @@ Uncompressed file size: 448,844 bytes.
 Compressed file size:   253,295 bytes.
 
 Ratio: 56.43%
-
-Decompressed and source files are the same size.
 
 Average time taken to compress over 100 cycles:   31 ms.
 Average time taken to decompress over 100 cycles: 41 ms.
@@ -38,8 +34,6 @@ Compressed file size:   595,235 bytes.
 
 Ratio: 57.50%
 
-Decompressed and source files are the same size.
-
 Average time taken to compress over 100 cycles:   63 ms.
 Average time taken to decompress over 100 cycles: 76 ms.
 
@@ -50,8 +44,6 @@ Uncompressed file size: 3,325,127 bytes.
 Compressed file size:   1,921,391 bytes.
 
 Ratio: 57.78%
-
-Decompressed and source files are the same size.
 
 Average time taken to compress over 100 cycles:   186 ms.
 Average time taken to decompress over 100 cycles: 227 ms.
@@ -64,8 +56,6 @@ Compressed file size:   432,705 bytes.
 
 Ratio: 54.75%
 
-Decompressed and source files are the same size.
-
 Average time taken to compress over 100 cycles:   47 ms.
 Average time taken to decompress over 100 cycles: 69 ms.
 
@@ -76,8 +66,6 @@ Uncompressed file size: 363,744 bytes.
 Compressed file size:   207,483 bytes.
 
 Ratio: 57.04%
-
-Decompressed and source files are the same size.
 
 Average time taken to compress over 100 cycles:   27 ms.
 Average time taken to decompress over 100 cycles: 32 ms.

@@ -81,3 +81,9 @@ Ratio: 57.04%
 [Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/War%20of%20the%20Worlds.html)
 
 Seems to pretty much hover around the 57% mark.
+
+## Fun Observations
+
+H. G. Wells closed all of his open brackets.
+
+![War of the Worlds Brackets Node](https://github.com/stevehjohn/Huffman/blob/master/WotW-Brackets.PNG "War of the Worlds Brackets Node")

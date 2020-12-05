@@ -91,3 +91,9 @@ Time taken to decompress: 40 ms.
 [Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/War%20of%20the%20Worlds.html)
 
 Seems to pretty much hover around the 57% mark.
+
+## Improvements
+
+Have been slowly optimising the code.
+
+See [Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md) for details of how various commits improved things.

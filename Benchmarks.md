@@ -27,7 +27,7 @@ Decompression: 355 ms ↓ ~3.3%
 
 ### Third Benchmark - Targeting Compression
 
-Removing division and modulus from Blob class.
+Removing modulus from Blob class.
 
 https://github.com/stevehjohn/Huffman/commit/f3f3e26fbc06a8a656b1a4def72c38fb95b42bc9
 

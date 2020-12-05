@@ -14,7 +14,7 @@ Compression:   382 ms
 Decompression: 367 ms
 ```
 
-### Second Benchmark - Targeting Decompression
+### Second Benchmark
 
 Removing division and modulus from BitReader class.
 
@@ -25,7 +25,7 @@ Compression:   384 ms
 Decompression: 355 ms ↓ ~3.3%
 ```
 
-### Third Benchmark - Targeting Compression
+### Third Benchmark
 
 Removing modulus from Blob class.
 
@@ -36,7 +36,7 @@ Compression:   373 ms ↓ ~2.9%
 Decompression: 362 ms
 ```
 
-### Fourth Benchmark - Targeting Compression
+### Fourth Benchmark
 
 Replacing `List<byte>` with `byte[]` in Blob class.
 
@@ -47,7 +47,7 @@ Compression:   300 ms ↓ ~19.6%
 Decompression: 366 ms
 ```
 
-### Fifth Benchmark - Targeting Decompression
+### Fifth Benchmark
 
 Removing calls to `OriginalLength` property.
 
@@ -58,7 +58,7 @@ Compression:   307 ms
 Decompression: 327 ms ↓ ~10.7%
 ```
 
-### Sixth Benchmark - Targeting Compression
+### Sixth Benchmark
 
 Replace `foreach` loop with `for` loop over input string.
 
@@ -69,7 +69,7 @@ Compression:   298 ms ↓ ~2.9%
 Decompression: 327 ms
 ```
 
-### Seventh Benchmark - Targeting Decompression
+### Seventh Benchmark
 
 Replace `StringBuilder` with `char[]`.
 
@@ -80,7 +80,7 @@ Compression:   298 ms
 Decompression: 315 ms ↓ ~3.7%
 ```
 
-### Eighth Benchmark - Targeting Compression
+### Eighth Benchmark
 
 Pre-build path cache.
 
@@ -91,7 +91,7 @@ Compression:   291 ms ↓ ~2.3%
 Decompression: 315 ms
 ```
 
-### Ninth Benchmark - Targeting Compression
+### Ninth Benchmark
 
 Pre-build path cache into array rather than dictionary.
 

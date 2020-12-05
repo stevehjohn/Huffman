@@ -99,7 +99,7 @@ namespace Huffman.Console.Handlers
 
             if (file.Length != decompressed.Length)
             {
-                WriteLine($"Decompressed and source files ARE NOT the same size.");
+                WriteLine("Decompressed and source files ARE NOT the same size.");
             }
 
             WriteLine();

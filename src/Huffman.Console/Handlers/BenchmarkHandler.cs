@@ -37,7 +37,10 @@ namespace Huffman.Console.Handlers
 
                 timer.Stop();
 
-                WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms.");
+                if (! _options.Quiet)
+                {
+                    WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms.");
+                }
 
                 averageCompression += timer.ElapsedMilliseconds;
 
@@ -58,7 +61,10 @@ namespace Huffman.Console.Handlers
 
                 timer.Stop();
 
-                WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
+                if (! _options.Quiet)
+                {
+                    WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
+                }
 
                 averageDecompression += timer.ElapsedMilliseconds;
 

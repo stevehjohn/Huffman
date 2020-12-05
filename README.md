@@ -58,7 +58,7 @@ Compressed size: 1,921,391 bytes.
 Ratio: 57.78%
 ```
 
-[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Les%20Mis�rables.html)
+[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Les%20Mis%C3%A9rables.html)
 
 - Pride and Prejudice
 

@@ -6,7 +6,15 @@ Bored during Covid, so doing a Huffman encoding routine for fun (yes, I'm an int
 
 For me, creating the Huffman tree was much easier to reason about when using a Priority Queue.
 
-## Results
+## Improvements
+
+Have been slowly optimising the code.
+
+See [Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md) for details of how various commits improved things.
+
+See [Standardised-Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Standardised-Benchmarks.md) for results on a given hardware configuration.
+
+## Initial Results
 
 Downloaded some public domain novels from Project Gutenberg.
 
@@ -91,9 +99,3 @@ Time taken to decompress: 40 ms.
 [Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/War%20of%20the%20Worlds.html)
 
 Seems to pretty much hover around the 57% mark.
-
-## Improvements
-
-Have been slowly optimising the code.
-
-See [Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md) for details of how various commits improved things.

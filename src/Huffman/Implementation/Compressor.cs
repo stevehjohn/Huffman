@@ -1,55 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Huffman.Models;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using Huffman.Models;
 
-namespace Huffman.Implementation
-{
-    public class Compressor
-    {
-        private readonly FrequencyCalculator _frequencyCalculator;
-        private readonly HuffmanTree _huffmanTree;
+//namespace Huffman.Implementation
+//{
+//    public class Compressor
+//    {
+//        private readonly FrequencyCalculator _frequencyCalculator;
+//        private readonly HuffmanTree _huffmanTree;
 
-        private string[] _pathCache;
+//        private string[] _pathCache;
 
-        public Compressor()
-        {
-            _frequencyCalculator = new FrequencyCalculator();
-            _huffmanTree = new HuffmanTree();
-        }
+//        public Compressor()
+//        {
+//            _frequencyCalculator = new FrequencyCalculator();
+//            _huffmanTree = new HuffmanTree();
+//        }
 
-        public byte[] Compress(string input)
-        {
-            var frequencies = _frequencyCalculator.GetFrequencies(input).ToList();
+//        public byte[] Compress(string input)
+//        {
+//            var frequencies = _frequencyCalculator.GetFrequencies(input).ToList();
 
-            _huffmanTree.Build(frequencies);
+//            _huffmanTree.Build(frequencies);
 
-            var blob = new Blob();
+//            var blob = new Blob();
 
-            BuildPathCache(frequencies);
+//            BuildPathCache(frequencies);
 
-            for (var i = 0; i < input.Length; i++)
-            {
-                var character = input[i];
+//            for (var i = 0; i < input.Length; i++)
+//            {
+//                var character = input[i];
 
-                blob.Append(_pathCache[character]);
-            }
+//                blob.Append(_pathCache[character]);
+//            }
 
-            var data = new CompressedData
-                       {
-                           Data = blob.ToByteArray(),
-                           Frequencies = frequencies,
-                           OriginalLength = input.Length
-                       };
+//            var data = new CompressedData
+//                       {
+//                           Data = blob.ToByteArray(),
+//                           Frequencies = frequencies,
+//                           OriginalLength = input.Length
+//                       };
 
-            return data.Save();
-        }
+//            return data.Save();
+//        }
 
-        private void BuildPathCache(List<CharacterFrequency> frequencies)
-        {
-            _pathCache = new string[(int) Math.Pow(256, Constants.CharSizeInBytes) - 1];
+//        private void BuildPathCache(List<StringFrequency> frequencies)
+//        {
+//            _pathCache = new string[(int) Math.Pow(256, Constants.CharSizeInBytes) - 1];
 
-            frequencies.ForEach(f => _pathCache[f.Character] = _huffmanTree.GetPath(f.Character));
-        }
-    }
-}
+//            frequencies.ForEach(f => _pathCache[f.Character] = _huffmanTree.GetPath(f.Character));
+//        }
+//    }
+//}

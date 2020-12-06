@@ -2,7 +2,7 @@
   "profiles": {
     "Huffman.Console": {
       "commandName": "Project",
-      "commandLineArgs": "benchmark -f \"..\\..\\..\\..\\Huffman.Tests\\Test Files\\Les Misérables.txt\" -c 20"
+      "commandLineArgs": "visualise -f \"..\\..\\..\\..\\Huffman.Tests\\Test Files\\War of the Worlds.txt\""
     }
   }
 }

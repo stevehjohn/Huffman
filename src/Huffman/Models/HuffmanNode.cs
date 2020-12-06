@@ -5,7 +5,7 @@ namespace Huffman.Models
     public class HuffmanNode
     {
         [SecondarySort]
-        public char Character { get; set; }
+        public string String { get; set; }
 
         [Priority]
         public int Frequency { get; set; }

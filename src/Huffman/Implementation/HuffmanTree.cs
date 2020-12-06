@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Huffman.Models;
@@ -10,7 +11,7 @@ namespace Huffman.Implementation
         public HuffmanNode Root { get; set; }
         private HuffmanNode[] _nodes;
 
-        public void Build(IEnumerable<CharacterFrequency> input)
+        public void Build(IEnumerable<StringFrequency> input)
         {
             var queue = new PriorityQueue<HuffmanNode, int>();
 
@@ -22,7 +23,7 @@ namespace Huffman.Implementation
 
             foreach (var item in frequencies)
             {
-                var node = new HuffmanNode { Frequency = item.Frequency, Character = item.Character };
+                var node = new HuffmanNode { Frequency = item.Frequency, String = item.String };
                 
                 queue.Add(node);
 
@@ -33,6 +34,8 @@ namespace Huffman.Implementation
 
             while (queue.Length > 1)
             {
+                Console.WriteLine(queue.Length);
+
                 var left = queue.PopMin();
 
                 var right = queue.PopMin();
@@ -53,9 +56,9 @@ namespace Huffman.Implementation
             Root = queue.PopMin();
         }
 
-        public string GetPath(char character)
+        public string GetPath(string word)
         {
-            var node = _nodes.Single(n => n.Character == character);
+            var node = _nodes.Single(n => n.String == word);
 
             var pathToRoot = new List<HuffmanNode>();
 

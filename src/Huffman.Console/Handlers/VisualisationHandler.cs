@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using Huffman.Console.Options;
 using Huffman.Implementation;
 using Huffman.Models;
@@ -30,9 +31,11 @@ namespace Huffman.Console.Handlers
         {
             var file = File.ReadAllText(_options.FileName);
 
+            file = file.Replace("\r\n", " ");
+
             var frequencyCalculator = new FrequencyCalculator();
 
-            var frequencies = frequencyCalculator.GetFrequencies(file);
+            var frequencies = frequencyCalculator.GetFrequencies(file).ToList();
 
             _tree.Build(frequencies);
 
@@ -62,11 +65,11 @@ namespace Huffman.Console.Handlers
 
         private string ProcessNode(HuffmanNode node)
         {
-            var innerHtml = node.Character == '\0'
+            var innerHtml = node.String == null
                 ? NodeTemplate.Replace("{frequency}", node.Frequency.ToString())
                 : LeafTemplate.Replace("{frequency}", node.Frequency.ToString())
-                              .Replace("{character}", char.IsWhiteSpace(node.Character) ? "' '" : node.Character.ToString())
-                              .Replace("{path}", _tree.GetPath(node.Character));
+                              .Replace("{character}", string.IsNullOrWhiteSpace(node.String) ? "' '" : node.String)
+                              .Replace("{path}", _tree.GetPath(node.String));
 
             innerHtml = innerHtml.Replace("{left}", node.Left != null 
                 ? ProcessNode(node.Left) 

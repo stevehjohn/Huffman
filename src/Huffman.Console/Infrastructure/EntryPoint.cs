@@ -11,8 +11,8 @@ namespace Huffman.Console.Infrastructure
         public static void Main(string[] arguments)
         {
             Parser.Default.ParseArguments<VisualiseOptions, BenchmarkOptions>(arguments)
-                  .WithParsed<VisualiseOptions>(o => new VisualisationHandler(o).Execute())
-                  .WithParsed<BenchmarkOptions>(o => new BenchmarkHandler(o).Execute());
+                  .WithParsed<VisualiseOptions>(o => new VisualisationHandler(o).Execute());
+                  //.WithParsed<BenchmarkOptions>(o => new BenchmarkHandler(o).Execute());
         }
     }
 }

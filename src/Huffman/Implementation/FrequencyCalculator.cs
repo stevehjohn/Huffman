@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Huffman.Models;
 
@@ -7,38 +6,28 @@ namespace Huffman.Implementation
 {
     public class FrequencyCalculator
     {
-        public IEnumerable<CharacterFrequency> GetFrequencies(string input)
+        public IEnumerable<StringFrequency> GetFrequencies(string input)
         {
-            var frequencies = CountFrequencies(input);
+            var words = input.Split(' ');
 
-            return GetNonZeroFrequencies(frequencies);
-        }
-    
-        private static int[] CountFrequencies(string input)
-        {
-            var frequencies = new int[(int) Math.Pow(256, Constants.CharSizeInBytes) - 1];
+            var frequencies = new Dictionary<string, int>
+                              {
+                                  { " ", input.Count(c => c == ' ') }
+                              };
 
-            foreach (var c in input)
+            foreach (var word in words)
             {
-                frequencies[c]++;
-            }
-
-            return frequencies;
-        }
-
-        private static IEnumerable<CharacterFrequency> GetNonZeroFrequencies(int[] input)
-        {
-            var frequencies = new Dictionary<char, int>();
-
-            for (var i = 0; i < (int) Math.Pow(256, Constants.CharSizeInBytes) - 1; i++)
-            {
-                if (input[i] > 0)
+                if (frequencies.ContainsKey(word))
                 {
-                    frequencies.Add((char) i, input[i]);
+                    frequencies[word]++;
+                }
+                else
+                {
+                    frequencies.Add(word, 1);
                 }
             }
 
-            return frequencies.Select(f => new CharacterFrequency { Character = f.Key, Frequency = f.Value });
+            return frequencies.Select(f => new StringFrequency { String = f.Key, Frequency = f.Value });
         }
     }
 }

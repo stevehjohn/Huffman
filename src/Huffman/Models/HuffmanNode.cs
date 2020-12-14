@@ -10,6 +10,8 @@ namespace Huffman.Models
         [Priority]
         public int Frequency { get; set; }
 
+        public bool IsLeaf { get; set; }
+
         public HuffmanNode Left { get; set; }
 
         public HuffmanNode Right { get; set; }

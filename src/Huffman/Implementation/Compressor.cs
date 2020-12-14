@@ -18,7 +18,7 @@ namespace Huffman.Implementation
             _huffmanTree = new HuffmanTree();
         }
 
-        public byte[] Compress(string input)
+        public byte[] Compress(byte[] input)
         {
             var frequencies = _frequencyCalculator.GetFrequencies(input).ToList();
 
@@ -47,7 +47,7 @@ namespace Huffman.Implementation
 
         private void BuildPathCache(List<CharacterFrequency> frequencies)
         {
-            _pathCache = new string[(int) Math.Pow(256, Constants.CharSizeInBytes) - 1];
+            _pathCache = new string[256];
 
             frequencies.ForEach(f => _pathCache[f.Character] = _huffmanTree.GetPath(f.Character));
         }

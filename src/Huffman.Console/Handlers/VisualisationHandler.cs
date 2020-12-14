@@ -28,7 +28,7 @@ namespace Huffman.Console.Handlers
 
         public void Execute()
         {
-            var file = File.ReadAllText(_options.FileName);
+            var file = File.ReadAllBytes(_options.FileName);
 
             var frequencyCalculator = new FrequencyCalculator();
 

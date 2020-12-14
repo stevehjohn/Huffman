@@ -20,6 +20,9 @@
     <None Update="Test Files\Frankenstein or the Modern Prometheus.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Test Files\Gin.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Test Files\Great Expectations.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -29,7 +29,7 @@
 
             while (position < originalLength)
             {
-                if (node.Character != '\0')
+                if (node.IsLeaf)
                 {
                     output[position] = node.Character;
 

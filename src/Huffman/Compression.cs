@@ -4,7 +4,7 @@ namespace Huffman
 {
     public static class Compression
     {
-        public static byte[] Compress(string input)
+        public static byte[] Compress(byte[] input)
         {
             var compressor = new Compressor();
 

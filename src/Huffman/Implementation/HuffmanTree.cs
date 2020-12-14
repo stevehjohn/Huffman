@@ -22,7 +22,7 @@ namespace Huffman.Implementation
 
             foreach (var item in frequencies)
             {
-                var node = new HuffmanNode { Frequency = item.Frequency, Character = item.Character };
+                var node = new HuffmanNode { Frequency = item.Frequency, Character = item.Character, IsLeaf = true };
                 
                 queue.Add(node);
 
@@ -55,7 +55,7 @@ namespace Huffman.Implementation
 
         public string GetPath(char character)
         {
-            var node = _nodes.Single(n => n.Character == character);
+            var node = _nodes.Single(n => n.Character == character && n.IsLeaf);
 
             var pathToRoot = new List<HuffmanNode>();
 

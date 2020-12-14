@@ -16,7 +16,7 @@ namespace Huffman.Implementation
     
         private static int[] CountFrequencies(string input)
         {
-            var frequencies = new int[(int) Math.Pow(256, Constants.CharSizeInBytes) - 1];
+            var frequencies = new int[(int) Math.Pow(256, Constants.CharSizeInBytes)];
 
             foreach (var c in input)
             {
@@ -30,7 +30,7 @@ namespace Huffman.Implementation
         {
             var frequencies = new Dictionary<char, int>();
 
-            for (var i = 0; i < (int) Math.Pow(256, Constants.CharSizeInBytes) - 1; i++)
+            for (var i = 0; i < (int) Math.Pow(256, Constants.CharSizeInBytes); i++)
             {
                 if (input[i] > 0)
                 {

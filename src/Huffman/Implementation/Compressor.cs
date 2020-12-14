@@ -47,7 +47,7 @@ namespace Huffman.Implementation
 
         private void BuildPathCache(List<CharacterFrequency> frequencies)
         {
-            _pathCache = new string[(int) Math.Pow(256, Constants.CharSizeInBytes) - 1];
+            _pathCache = new string[(int) Math.Pow(256, Constants.CharSizeInBytes)];
 
             frequencies.ForEach(f => _pathCache[f.Character] = _huffmanTree.GetPath(f.Character));
         }

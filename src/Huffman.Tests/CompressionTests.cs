@@ -20,7 +20,7 @@ namespace Huffman.Tests
         //[InlineData("Great Expectations.txt")]
         //[InlineData("Les Misérables.txt")]
         //[InlineData("Pride and Prejudice.txt")]
-        [InlineData("War of the Worlds.txt")]
+        //[InlineData("War of the Worlds.txt")]
         //[InlineData("Gin.bmp")]
         public void File_compresses_and_decompresses(string filename)
         {
@@ -42,16 +42,16 @@ namespace Huffman.Tests
             
             _testOutputHelper.WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms.");
 
-            //timer.Reset();
-            //timer.Start();
+            timer.Reset();
+            timer.Start();
 
             var decompressed = Compression.Decompress(compressed);
 
-            //timer.Stop();
+            timer.Stop();
 
-            //_testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length:N0} bytes.");
+            _testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length:N0} bytes.");
 
-            //_testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
+            _testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
 
             //Assert.Equal(file, decompressed);
         }

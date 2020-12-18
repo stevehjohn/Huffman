@@ -102,6 +102,25 @@ Compression:   275 ms ↓ ~5.5%
 Decompression: 315 ms
 ```
 
+### Tenth Benchmark
+
+Tweaking `BitReader`.
+
+https://github.com/stevehjohn/Huffman/commit/71807f6443cc727389e8a414303834004592e4f2
+
+```
+No discernable difference.
+```
+
+### Eleventh Benchmark
+
+Reduce dereferencing of `_data` in `BitReader`.
+
+```
+Compression:    267 ms
+Decompression:  293 ms ↓ ~7.0%
+```
+
 ## Current Overall Improvement
 
 <br/>
@@ -109,4 +128,4 @@ Decompression: 315 ms
 | | Initial Time | Latest Time | % Improvement |
 | --- | --- | --- | --- |
 | Compression: | 382 ms | 275 ms | 28.0% |
-| Decompression: | 367 ms | 315 ms | 14.2% |
+| Decompression: | 367 ms | 293 ms | 20.2% |

@@ -30,9 +30,7 @@ namespace Huffman.Implementation
 
             for (var i = 0; i < input.Length; i++)
             {
-                var character = input[i];
-
-                blob.Append(_pathCache[character]);
+                blob.Append(_pathCache[input[i]]);
             }
 
             var data = new CompressedData

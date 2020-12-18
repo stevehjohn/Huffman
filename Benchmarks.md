@@ -116,6 +116,8 @@ No discernable difference.
 
 Reduce dereferencing of `_data` in `BitReader`.
 
+https://github.com/stevehjohn/Huffman/commit/5203d0bc473f1742a9d7a782a49029c781370839
+
 ```
 Compression:    267 ms
 Decompression:  293 ms ↓ ~7.0%

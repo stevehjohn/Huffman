@@ -101,3 +101,12 @@ https://github.com/stevehjohn/Huffman/commit/e2651dd774fcff428542ad1eb10fb3ba1c4
 Compression:   275 ms ↓ ~5.5%
 Decompression: 315 ms
 ```
+
+## Current Overall Improvement
+
+<br/>
+
+| | Initial Time | Latest Time | % Improvement |
+| --- | --- | --- | --- |
+| Compression: | 382 ms | 275 ms | 28.0% |
+| Decompression: | 367 ms | 315 ms | 14.2% |

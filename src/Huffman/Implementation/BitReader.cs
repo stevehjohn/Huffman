@@ -4,7 +4,7 @@
     {
         private readonly byte[] _data;
         private int _bytePosition;
-        private int _bitPosition = 7;
+        private byte _bit = 128;
 
         public BitReader(byte[] data)
         {
@@ -13,13 +13,13 @@
 
         public bool Read()
         {
-            var bit = (_data[_bytePosition] & (byte) (1 << _bitPosition)) > 0;
+            var bit = (_data[_bytePosition] & _bit) > 0;
 
-            _bitPosition--;
+            _bit = (byte) (_bit >> 1);
 
-            if (_bitPosition == -1)
+            if (_bit == 0)
             {
-                _bitPosition = 7;
+                _bit = 128;
                 _bytePosition++;
             }
 

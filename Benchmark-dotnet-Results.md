@@ -22,14 +22,14 @@ As of <a href="https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md#e
 
 ### Compression
 
-|                     Method |      Mean |    Error |   StdDev |
-|--------------------------- |----------:|---------:|---------:|
-|    Compress_Les_Misérables | 118.79 ms | 1.298 ms | 1.151 ms |
-| Compress_War_of_the_Worlds |  15.08 ms | 0.289 ms | 0.442 ms |
+|                     Method |      Mean |    Error |   StdDev | Improvement |
+|--------------------------- |----------:|---------:|---------:|------------:|
+|    Compress_Les_Misérables | 118.79 ms | 1.298 ms | 1.151 ms | ~31.9% |
+| Compress_War_of_the_Worlds |  15.08 ms | 0.289 ms | 0.442 ms | ~32.2% |
 
 ### Decompression
 
-|                       Method |      Mean |    Error |   StdDev |
-|----------------------------- |----------:|---------:|---------:|
-|    Decompress_Les_Misérables | 112.13 ms | 1.003 ms | 0.783 ms |
-| Decompress_War_of_the_Worlds |  14.09 ms | 0.099 ms | 0.077 ms |
+|                       Method |      Mean |    Error |   StdDev | Improvement |
+|----------------------------- |----------:|---------:|---------:|------------:|
+|    Decompress_Les_Misérables | 112.13 ms | 1.003 ms | 0.783 ms | ~17.4% |
+| Decompress_War_of_the_Worlds |  14.09 ms | 0.099 ms | 0.077 ms | ~13.6% |

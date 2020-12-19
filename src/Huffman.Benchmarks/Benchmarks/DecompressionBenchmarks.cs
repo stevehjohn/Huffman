@@ -8,9 +8,17 @@ namespace Huffman.Benchmarks.Benchmarks
     public class DecompressionBenchmarks
     {
         [Benchmark]
-        public void Les_Misérables()
+        public void Decompress_Les_Misérables()
         {
             var file = File.ReadAllBytes("Test Files\\Les Misérables.huff");
+
+            Compression.Decompress(file);
+        }
+
+        [Benchmark]
+        public void Decompress_War_of_the_Worlds()
+        {
+            var file = File.ReadAllBytes("Test Files\\War of the Worlds.huff");
 
             Compression.Decompress(file);
         }

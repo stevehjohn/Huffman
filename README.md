@@ -4,6 +4,14 @@ Bored during Covid, so doing a Huffman encoding routine for fun (yes, I'm an int
 
 ![Huffman Tree Visualisation for Stevo](https://github.com/stevehjohn/Huffman/blob/master/Illustration.png "Huffman Tree Visualisation for Stevo")
 
+## Principle
+
+Wikipedia explanation [here](https://en.wikipedia.org/wiki/Huffman_coding).
+
+Essentially, you scan the text and count the number of occurrences of each character. Then, you create a tree where each leaf node is one of the characters. The tree is constructed in such a way that the most common characters are nearest the root node and the least common are furthest away.
+
+You can then encode any character by using `0` and `1` to represent left or right in navigating the tree. In the simple example above, `w` is reached by going right, right, left, right or `1101`. So the character is encoded in only 4 bits rather than the usual 8 (or more).
+
 ## Notes
 
 For me, creating the Huffman tree was much easier to reason about when using a Priority Queue.

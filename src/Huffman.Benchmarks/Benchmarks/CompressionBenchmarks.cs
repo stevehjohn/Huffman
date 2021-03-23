@@ -25,7 +25,7 @@ namespace Huffman.Benchmarks.Benchmarks
         [Benchmark]
         public void Compress_War_of_the_Worlds()
         {
-            File.WriteAllBytes("C:\\Wow.huff", Compression.Compress(_warOfTheWorlds));
+            Compression.Compress(_warOfTheWorlds);
         }
     }
 }

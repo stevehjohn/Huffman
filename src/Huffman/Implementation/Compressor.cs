@@ -18,7 +18,7 @@ namespace Huffman.Implementation
             _huffmanTree = new HuffmanTree();
         }
 
-        public byte[] Compress(string input)
+        public unsafe byte[] Compress(string input)
         {
             var frequencies = _frequencyCalculator.GetFrequencies(input).ToList();
 
@@ -28,9 +28,14 @@ namespace Huffman.Implementation
 
             BuildPathCache(frequencies);
 
-            for (var i = 0; i < input.Length; i++)
+            var length = input.Length;
+
+            fixed (char* inputPointer = input)
             {
-                blob.Append(_pathCache[input[i]]);
+                for (var i = 0; i < length; i++)
+                {
+                    blob.Append(_pathCache[inputPointer[i]]);
+                }
             }
 
             var data = new CompressedData

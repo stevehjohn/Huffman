@@ -123,11 +123,22 @@ Compression:    267 ms
 Decompression:  293 ms ↓ ~7.0%
 ```
 
+### Twelfth Benchmark
+
+Using pointers to access the input string when compressing.
+
+https://github.com/stevehjohn/Huffman/commit/f42ae728c90a8284a926b31841a8374ceb3a9ead
+
+```
+Compression:    245 ms  ↓ ~8.2%
+Decompression:  293 ms
+```
+
 ## Current Overall Improvement
 
 <br/>
 
 | | Initial Time | Latest Time | % Improvement |
 | --- | --- | --- | --- |
-| Compression: | 382 ms | 275 ms | 28.0% |
+| Compression: | 382 ms | 245 ms | 35.9% |
 | Decompression: | 367 ms | 293 ms | 20.2% |

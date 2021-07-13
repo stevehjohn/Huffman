@@ -18,7 +18,7 @@
 
 ## Current Result
 
-As of <a href="https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md#twelfth-benchmark">Eleventh Benchmark</a>
+As of <a href="https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md#twelfth-benchmark">Twelfth Benchmark</a>
 
 ### Compression
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huffman", "Huffman\Huffman.csproj", "{EAADA2DC-B8CD-4984-BA16-40F4A01D130D}"
 EndProject
@@ -14,7 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\Benchmarks.md = ..\Benchmarks.md
 		..\Generate-All-Visualisations.ps1 = ..\Generate-All-Visualisations.ps1
 		..\README.md = ..\README.md
-		..\Standardised-Benchmarks.md = ..\Standardised-Benchmarks.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huffman.Console", "Huffman.Console\Huffman.Console.csproj", "{B19CF28B-A735-45ED-9881-8FFA2223FA57}"
@@ -30,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualisations", "Visualisa
 		..\visualisations\War of the Worlds.html = ..\visualisations\War of the Worlds.html
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huffman.Benchmarks", "Huffman.Benchmarks\Huffman.Benchmarks.csproj", "{2A947EB2-1F53-455F-A3EA-6B145F79B819}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huffman.Benchmarks", "Huffman.Benchmarks\Huffman.Benchmarks.csproj", "{2A947EB2-1F53-455F-A3EA-6B145F79B819}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

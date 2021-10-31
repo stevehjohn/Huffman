@@ -20,7 +20,9 @@ For me, creating the Huffman tree was much easier to reason about when using a P
 
 Have been slowly optimising the code.
 
-See [Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md) for details of how various commits improved things.
+See [Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md) for details of how various commits improved things. This uses the console app.
+
+See [Benchmark-dotnet-Results.md](https://github.com/stevehjohn/Huffman/blob/master/-dotnet-Results.md) for initial and current best results using [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
 See [Standardised-Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Standardised-Benchmarks.md) for results on a given hardware configuration.
 

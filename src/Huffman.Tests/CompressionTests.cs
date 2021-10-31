@@ -23,7 +23,7 @@ namespace Huffman.Tests
         [InlineData("War of the Worlds.txt")]
         public void File_compresses_and_decompresses(string filename)
         {
-            var file = File.ReadAllText($"Test Files\\{filename}");
+            var file = File.ReadAllText(Path.Combine("Test Files", filename));
 
             _testOutputHelper.WriteLine($"Original size: {file.Length:N0} bytes.");
 

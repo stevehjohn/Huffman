@@ -12,8 +12,8 @@ namespace Huffman.Benchmarks.Benchmarks
         
         public CompressionBenchmarks()
         {
-            _lesMisérables = File.ReadAllText("Test Files\\Les Misérables.txt");
-            _warOfTheWorlds = File.ReadAllText("Test Files\\War of the Worlds.txt");
+            _lesMisérables = File.ReadAllText(Path.Combine("Test Files", "Les Misérables.txt"));
+            _warOfTheWorlds = File.ReadAllText(Path.Combine("Test Files", "War of the Worlds.txt"));
         }
         
         [Benchmark]

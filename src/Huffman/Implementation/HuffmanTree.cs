@@ -12,7 +12,7 @@ namespace Huffman.Implementation
 
         public void Build(IEnumerable<CharacterFrequency> input)
         {
-            var queue = new PriorityQueue<HuffmanNode, int>();
+            var queue = new PriorityQueue<HuffmanNode, int, char>();
 
             var frequencies = input.ToList();
 

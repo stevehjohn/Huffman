@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Buffers;
 
 namespace Huffman.Implementation
 {
-    public class BitReader
+    public class BitReader : IDisposable
     {
         private readonly byte[] _data;
         private int _bytePosition;
@@ -10,7 +11,7 @@ namespace Huffman.Implementation
 
         public BitReader(byte[] data)
         {
-            _data = new byte[data.Length + 1];
+            _data = ArrayPool<byte>.Shared.Rent(data.Length + 1);
             Buffer.BlockCopy(data, 0, _data, 0, data.Length);
         }
 
@@ -23,6 +24,11 @@ namespace Huffman.Implementation
             _bytePosition += _bit >> 7;
 
             return bit;
+        }
+
+        public void Dispose()
+        {
+            ArrayPool<byte>.Shared.Return(_data);
         }
     }
 }

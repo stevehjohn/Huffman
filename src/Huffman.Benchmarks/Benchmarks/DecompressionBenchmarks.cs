@@ -12,8 +12,8 @@ namespace Huffman.Benchmarks.Benchmarks
         
         public DecompressionBenchmarks()
         {
-            _lesMisérables = File.ReadAllBytes("Test Files\\Les Misérables.huff");
-            _warOfTheWorlds = File.ReadAllBytes("Test Files\\War of the Worlds.huff");
+            _lesMisérables = File.ReadAllBytes(Path.Combine("Test Files", "Les Misérables.huff"));
+            _warOfTheWorlds = File.ReadAllBytes(Path.Combine("Test Files","War of the Worlds.huff"));
         }
         
         [Benchmark]

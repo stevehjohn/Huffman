@@ -1,25 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace Huffman.Implementation
 {
-    public class PriorityQueue<T, TP> where TP : struct
+    public class PriorityQueue<T, TP, TS> where TP : struct
     {
         private readonly List<T> _items;
 
-        private readonly PropertyInfo _priorityProperty;
-        private readonly PropertyInfo _sortProperty;
+        private static readonly Func<T, TP> _priorityPropertyDelegate = (Func<T, TP>) Delegate.CreateDelegate(typeof(Func<T, TP>), typeof(T).GetProperties().Single(p => Attribute.IsDefined(p, typeof(PriorityAttribute))).GetGetMethod());
+        private static readonly Func<T, TS> _sortPropertyDelegate = (Func<T, TS>) Delegate.CreateDelegate(typeof(Func<T, TS>), typeof(T).GetProperties().Single(p => Attribute.IsDefined(p, typeof(SecondarySortAttribute))).GetGetMethod());
 
         public int Length => _items.Count;
 
         public PriorityQueue()
         {
             _items = new List<T>();
-
-            _priorityProperty = typeof(T).GetProperties().Single(p => Attribute.IsDefined(p, typeof(PriorityAttribute)));
-            _sortProperty = typeof(T).GetProperties().Single(p => Attribute.IsDefined(p, typeof(SecondarySortAttribute)));
         }
 
         public void Add(T item)
@@ -29,27 +25,11 @@ namespace Huffman.Implementation
 
         public T PopMin()
         {
-            var min = Convert.ChangeType(_items.Min(i => _priorityProperty.GetValue(i)), typeof(TP));
-
-            var items = _items.Where(i => GetPriorityPropertyValue(i).Equals(min));
-
-            var item = items.OrderBy(i => _sortProperty.GetValue(i)).First();
+            var item = _items.MinBy(i => (_priorityPropertyDelegate(i), _sortPropertyDelegate(i)));
 
             _items.Remove(item);
 
             return item;
-        }
-
-        private TP GetPriorityPropertyValue(T input)
-        {
-            var value = _priorityProperty.GetValue(input);
-            
-            if (value is TP tp)
-            {
-                return tp;
-            }
-
-            throw new InvalidCastException($"Cannot cast priority property {_priorityProperty.Name} to {typeof(TP).Name}.");
         }
     }
 }

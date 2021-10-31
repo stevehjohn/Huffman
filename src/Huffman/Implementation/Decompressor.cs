@@ -21,8 +21,7 @@
 
             var output = new char[originalLength];
 
-            var bits = new BitReader(data.Data);
-
+            using var bits = new BitReader(data.Data);
             var node = _huffmanTree.Root;
 
             var position = 0;

@@ -24,8 +24,6 @@ See [Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Benchmarks
 
 See [Benchmark-dotnet-Results.md](https://github.com/stevehjohn/Huffman/blob/master/Benchmark-dotnet-Results.md) for initial and current best results using [BenchmarkDotNet](https://benchmarkdotnet.org/).
 
-See [Standardised-Benchmarks.md](https://github.com/stevehjohn/Huffman/blob/master/Standardised-Benchmarks.md) for results on a given hardware configuration.
-
 ## Initial Results
 
 Downloaded some public domain novels from Project Gutenberg. Here's how they compress.

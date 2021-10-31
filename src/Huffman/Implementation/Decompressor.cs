@@ -28,9 +28,10 @@
 
             while (position < originalLength)
             {
-                if (node.Character != '\0')
+                var c = node.Character;
+                if (c != '\0')
                 {
-                    output[position] = node.Character;
+                    output[position] = c;
 
                     node = _huffmanTree.Root;
 

@@ -18,18 +18,18 @@
 
 ## Current Result
 
-As of <a href="https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md#twelfth-benchmark">Twelfth Benchmark</a>
+As of <a href="https://github.com/stevehjohn/Huffman/blob/master/Benchmarks.md#thirteenth-benchmark">Thirteenth Benchmark</a>
 
 ### Compression
 
 |                     Method |      Mean |    Error |   StdDev |
 |--------------------------- |----------:|---------:|---------:|
-|    Compress_Les_Misérables | 103.38 ms | 0.736 ms | 0.652 ms |
-| Compress_War_of_the_Worlds |  12.42 ms | 0.092 ms | 0.086 ms |
+|    Compress_Les_Misérables | 103.56 ms | 1.155 ms | 0.965 ms |
+| Compress_War_of_the_Worlds |  12.75 ms | 0.179 ms | 0.168 ms |
 
 ### Decompression
 
-|                       Method |      Mean |    Error |   StdDev | Improvement |
-|----------------------------- |----------:|---------:|---------:|------------:|
-|    Decompress_Les_Misérables | 112.13 ms | 1.003 ms | 0.783 ms | ~17.4%      |
-| Decompress_War_of_the_Worlds |  14.09 ms | 0.099 ms | 0.077 ms | ~13.6%      |
+|                       Method |      Mean |     Error |    StdDev |
+|----------------------------- |----------:|----------:|----------:|
+|    Decompress_Les_Misérables | 81.255 ms | 1.1592 ms | 1.0843 ms |
+| Decompress_War_of_the_Worlds |  9.855 ms | 0.0753 ms | 0.0668 ms |

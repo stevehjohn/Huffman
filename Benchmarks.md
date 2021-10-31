@@ -134,11 +134,22 @@ Compression:    245 ms  ↓ ~8.2%
 Decompression:  293 ms
 ```
 
+### Thirteenth Benchmark
+
+Improving efficiency of BitReader.
+
+https://github.com/stevehjohn/Huffman/commit/875ac6182219f8d01e3ad8c24ec797e8bb76c317
+
+```
+Compression:    245 ms
+Decompression:  268 ms  ↓ ~8.5%
+```
+
 ## Current Overall Improvement
 
 <br/>
 
-| | Initial Time | Latest Time | % Improvement |
-| --- | --- | --- | --- |
-| Compression: | 382 ms | 245 ms | 35.9% |
-| Decompression: | 367 ms | 293 ms | 20.2% |
+|                | Initial Time | Latest Time | % Improvement |
+| -------------- | ------------:| -----------:| -------------:|
+| Compression:   |       382 ms |      245 ms |         35.9% |
+| Decompression: |       367 ms |      268 ms |         30.0% |

@@ -1,6 +1,6 @@
 # Huffman
 
-Bored during Covid, so doing a Huffman encoding routine for fun (yes, I'm an interminable nerd).
+Bored during Covid, so doing a Huffman encoding routine for fun (yes, I'm an interminable nerd). Inspired by [Tom Scott's video](https://www.youtube.com/watch?v=JsTptu56GM8).
 
 ![Huffman Tree Visualisation for Stevo](https://github.com/stevehjohn/Huffman/blob/master/Illustration.png "Huffman Tree Visualisation for Stevo")
 

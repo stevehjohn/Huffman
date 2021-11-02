@@ -9,7 +9,7 @@ namespace Huffman.Tests.Implementation
         [Fact]
         public void PopMin_returns_items_in_the_correct_order()
         {
-            var queue = new PriorityQueue<TestNode, int>();
+            var queue = new PriorityQueue<TestNode, int, string>();
 
             queue.Add(new TestNode { Priority = 5, Description = "Five" });
             queue.Add(new TestNode { Priority = 4, Description = "1-Four" });
@@ -27,11 +27,11 @@ namespace Huffman.Tests.Implementation
         [Fact]
         public void PopMin_throws_exception_when_unable_to_cast_priority_property()
         {
-            var queue = new PriorityQueue<TestNode, bool>();
+            var queue = new PriorityQueue<TestNode, bool, string>();
 
             queue.Add(new TestNode { Priority = 5, Description = "Five" });
 
-            Assert.Throws<InvalidCastException>(() => queue.PopMin());
+            Assert.Throws<TypeInitializationException>(() => queue.PopMin());
         }
     }
 

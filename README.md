@@ -36,7 +36,7 @@ Compressed size: 454,568 bytes.
 Ratio: 57.32%
 ```
 
-[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/A%20Tale%20of%20Two%20Cities.html)
+[Huffman Tree Visualisation](https://stevehjohn.github.io/Huffman/visualisations/A%20Tale%20of%20Two%20Cities.html)
 
 - Frankenstein or the Modern Prometheus
 
@@ -46,7 +46,7 @@ Compressed size: 253,295 bytes.
 Ratio: 56.43%
 ```
 
-[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Frankenstein%20or%20the%20Modern%20Prometheus.html)
+[Huffman Tree Visualisation](https://stevehjohn.github.io/Huffman/visualisations/Frankenstein%20or%20the%20Modern%20Prometheus.html)
 
 - Great Expectations
 
@@ -56,7 +56,7 @@ Compressed size: 595,235 bytes.
 Ratio: 57.50%
 ```
 
-[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Great%20Expectations.html)
+[Huffman Tree Visualisation](https://stevehjohn.github.io/Huffman/visualisations/Great%20Expectations.html)
 
 - Les Misérables
 
@@ -66,7 +66,7 @@ Compressed size: 1,921,391 bytes.
 Ratio: 57.78%
 ```
 
-[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Les%20Mis%C3%A9rables.html)
+[Huffman Tree Visualisation](https://stevehjohn.github.io/Huffman/visualisations/Les%20Mis%C3%A9rables.html)
 
 - Pride and Prejudice
 
@@ -76,7 +76,7 @@ Compressed size: 432,705 bytes.
 Ratio: 54.75%
 ```
 
-[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/Pride%20and%20Prejudice.html)
+[Huffman Tree Visualisation](https://stevehjohn.github.io/Huffman/visualisations/Pride%20and%20Prejudice.html)
 
 - War of the Worlds
 
@@ -86,7 +86,7 @@ Compressed size: 207,483 bytes.
 Ratio: 57.04%
 ```
 
-[Huffman Tree Visualisation](https://htmlpreview.github.io/?https://github.com/stevehjohn/Huffman/blob/master/visualisations/War%20of%20the%20Worlds.html)
+[Huffman Tree Visualisation](https://stevehjohn.github.io/Huffman/visualisations/War%20of%20the%20Worlds.html)
 
 Seems to pretty much hover around the 57% mark.
 

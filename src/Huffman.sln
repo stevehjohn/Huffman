@@ -32,6 +32,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualisations", "Visualisa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huffman.Benchmarks", "Huffman.Benchmarks\Huffman.Benchmarks.csproj", "{2A947EB2-1F53-455F-A3EA-6B145F79B819}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub Actions", "GitHub Actions", "{D8A9B975-4BD9-4FDA-BB7C-701569835B26}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\static.yml = ..\.github\workflows\static.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

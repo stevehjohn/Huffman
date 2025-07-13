@@ -1,8 +1,7 @@
 ﻿using System;
 
-namespace Huffman.Implementation
+namespace Huffman.Implementation;
+
+public class SecondarySortAttribute : Attribute
 {
-    public class SecondarySortAttribute : Attribute
-    {
-    }
 }

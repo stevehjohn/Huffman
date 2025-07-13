@@ -1,25 +1,24 @@
 ﻿using Huffman.Implementation;
 
-namespace Huffman
+namespace Huffman;
+
+public static class Compression
 {
-    public static class Compression
+    public static byte[] Compress(string input)
     {
-        public static byte[] Compress(string input)
-        {
-            var compressor = new Compressor();
+        var compressor = new Compressor();
 
-            var result = compressor.Compress(input);
+        var result = compressor.Compress(input);
 
-            return result;
-        }
+        return result;
+    }
 
-        public static string Decompress(byte[] input)
-        {
-            var decompressor = new Decompressor();
+    public static string Decompress(byte[] input)
+    {
+        var decompressor = new Decompressor();
 
-            var result = decompressor.Decompress(input);
+        var result = decompressor.Decompress(input);
 
-            return result;
-        }
+        return result;
     }
 }

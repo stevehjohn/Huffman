@@ -3,53 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Huffman.Implementation
+namespace Huffman.Implementation;
+
+public class PriorityQueue<T, TP> where TP : struct
 {
-    public class PriorityQueue<T, TP> where TP : struct
+    private readonly List<T> _items;
+
+    private readonly PropertyInfo _priorityProperty;
+    private readonly PropertyInfo _sortProperty;
+
+    public int Length => _items.Count;
+
+    public PriorityQueue()
     {
-        private readonly List<T> _items;
+        _items = new List<T>();
 
-        private readonly PropertyInfo _priorityProperty;
-        private readonly PropertyInfo _sortProperty;
+        _priorityProperty = typeof(T).GetProperties().Single(p => Attribute.IsDefined(p, typeof(PriorityAttribute)));
+        _sortProperty = typeof(T).GetProperties().Single(p => Attribute.IsDefined(p, typeof(SecondarySortAttribute)));
+    }
 
-        public int Length => _items.Count;
+    public void Add(T item)
+    {
+        _items.Add(item);
+    }
 
-        public PriorityQueue()
-        {
-            _items = new List<T>();
+    public T PopMin()
+    {
+        var min = Convert.ChangeType(_items.Min(i => _priorityProperty.GetValue(i)), typeof(TP));
 
-            _priorityProperty = typeof(T).GetProperties().Single(p => Attribute.IsDefined(p, typeof(PriorityAttribute)));
-            _sortProperty = typeof(T).GetProperties().Single(p => Attribute.IsDefined(p, typeof(SecondarySortAttribute)));
-        }
+        var items = _items.Where(i => GetPriorityPropertyValue(i).Equals(min));
 
-        public void Add(T item)
-        {
-            _items.Add(item);
-        }
+        var item = items.OrderBy(i => _sortProperty.GetValue(i)).First();
 
-        public T PopMin()
-        {
-            var min = Convert.ChangeType(_items.Min(i => _priorityProperty.GetValue(i)), typeof(TP));
+        _items.Remove(item);
 
-            var items = _items.Where(i => GetPriorityPropertyValue(i).Equals(min));
+        return item;
+    }
 
-            var item = items.OrderBy(i => _sortProperty.GetValue(i)).First();
-
-            _items.Remove(item);
-
-            return item;
-        }
-
-        private TP GetPriorityPropertyValue(T input)
-        {
-            var value = _priorityProperty.GetValue(input);
+    private TP GetPriorityPropertyValue(T input)
+    {
+        var value = _priorityProperty.GetValue(input);
             
-            if (value is TP tp)
-            {
-                return tp;
-            }
-
-            throw new InvalidCastException($"Cannot cast priority property {_priorityProperty.Name} to {typeof(TP).Name}.");
+        if (value is TP tp)
+        {
+            return tp;
         }
+
+        throw new InvalidCastException($"Cannot cast priority property {_priorityProperty.Name} to {typeof(TP).Name}.");
     }
 }

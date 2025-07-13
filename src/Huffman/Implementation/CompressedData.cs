@@ -3,63 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using Huffman.Models;
 
-namespace Huffman.Implementation
+namespace Huffman.Implementation;
+
+public class CompressedData
 {
-    public class CompressedData
+    public IEnumerable<CharacterFrequency> Frequencies { get; set; }
+
+    public byte[] Data { get; set; }
+
+    public int OriginalLength { get; set; }
+
+    public byte[] Save()
     {
-        public IEnumerable<CharacterFrequency> Frequencies { get; set; }
+        var frequencies = Frequencies.ToList();
 
-        public byte[] Data { get; set; }
+        var frequencyTable = new byte[frequencies.Count * 8];
 
-        public int OriginalLength { get; set; }
+        var count = 0;
 
-        public byte[] Save()
+        foreach (var item in frequencies)
         {
-            var frequencies = Frequencies.ToList();
+            Buffer.BlockCopy(BitConverter.GetBytes(item.Frequency), 0, frequencyTable, count * 8, 4);
+            Buffer.BlockCopy(BitConverter.GetBytes((int) item.Character), 0, frequencyTable, count * 8 + 4, 4);
 
-            var frequencyTable = new byte[frequencies.Count * 8];
-
-            var count = 0;
-
-            foreach (var item in frequencies)
-            {
-                Buffer.BlockCopy(BitConverter.GetBytes(item.Frequency), 0, frequencyTable, count * 8, 4);
-                Buffer.BlockCopy(BitConverter.GetBytes((int) item.Character), 0, frequencyTable, count * 8 + 4, 4);
-
-                count++;
-            }
-
-            var data = new byte[8 + frequencyTable.Length + Data.Length];
-
-            Buffer.BlockCopy(BitConverter.GetBytes(frequencies.Count), 0, data, 0, 4);
-            Buffer.BlockCopy(BitConverter.GetBytes(OriginalLength), 0, data, 4, 4);
-            Buffer.BlockCopy(frequencyTable, 0, data, 8, frequencyTable.Length);
-            Buffer.BlockCopy(Data, 0, data, 8 + frequencyTable.Length, Data.Length);
-
-            return data;
+            count++;
         }
 
-        public void Load(byte[] data)
+        var data = new byte[8 + frequencyTable.Length + Data.Length];
+
+        Buffer.BlockCopy(BitConverter.GetBytes(frequencies.Count), 0, data, 0, 4);
+        Buffer.BlockCopy(BitConverter.GetBytes(OriginalLength), 0, data, 4, 4);
+        Buffer.BlockCopy(frequencyTable, 0, data, 8, frequencyTable.Length);
+        Buffer.BlockCopy(Data, 0, data, 8 + frequencyTable.Length, Data.Length);
+
+        return data;
+    }
+
+    public void Load(byte[] data)
+    {
+        var frequencies = new List<CharacterFrequency>();
+
+        var frequencyCount = BitConverter.ToInt32(data, 0);
+
+        OriginalLength = BitConverter.ToInt32(data, 4);
+
+        for (var i = 0; i < frequencyCount * 8; i += 8)
         {
-            var frequencies = new List<CharacterFrequency>();
+            var frequency = BitConverter.ToInt32(data, 8 + i);
+            var character = (char) BitConverter.ToInt32(data, 12 + i);
 
-            var frequencyCount = BitConverter.ToInt32(data, 0);
-
-            OriginalLength = BitConverter.ToInt32(data, 4);
-
-            for (var i = 0; i < frequencyCount * 8; i += 8)
-            {
-                var frequency = BitConverter.ToInt32(data, 8 + i);
-                var character = (char) BitConverter.ToInt32(data, 12 + i);
-
-                frequencies.Add(new CharacterFrequency { Frequency = frequency, Character = character });
-            }
-
-            Frequencies = frequencies;
-
-            Data = new byte[data.Length - 8 - frequencyCount * 8];
-
-            Buffer.BlockCopy(data, 8 + frequencyCount * 8, Data, 0, data.Length - 8 - frequencyCount * 8);
+            frequencies.Add(new CharacterFrequency { Frequency = frequency, Character = character });
         }
+
+        Frequencies = frequencies;
+
+        Data = new byte[data.Length - 8 - frequencyCount * 8];
+
+        Buffer.BlockCopy(data, 8 + frequencyCount * 8, Data, 0, data.Length - 8 - frequencyCount * 8);
     }
 }

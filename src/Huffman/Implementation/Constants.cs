@@ -1,7 +1,6 @@
-﻿namespace Huffman.Implementation
+﻿namespace Huffman.Implementation;
+
+public class Constants
 {
-    public class Constants
-    {
-        public const int CharSizeInBytes = 2;
-    }
+    public const int CharSizeInBytes = 2;
 }

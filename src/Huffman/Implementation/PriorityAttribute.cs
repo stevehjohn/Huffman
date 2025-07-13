@@ -1,8 +1,7 @@
 ﻿using System;
 
-namespace Huffman.Implementation
+namespace Huffman.Implementation;
+
+public class PriorityAttribute : Attribute
 {
-    public class PriorityAttribute : Attribute
-    {
-    }
 }

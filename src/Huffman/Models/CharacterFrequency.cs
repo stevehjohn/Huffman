@@ -1,9 +1,8 @@
-﻿namespace Huffman.Models
-{
-    public class CharacterFrequency
-    {
-        public char Character { get; set; }
+﻿namespace Huffman.Models;
 
-        public int Frequency { get; set; }
-    }
+public class CharacterFrequency
+{
+    public char Character { get; set; }
+
+    public int Frequency { get; set; }
 }

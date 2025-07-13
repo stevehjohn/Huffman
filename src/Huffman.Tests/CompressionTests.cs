@@ -3,56 +3,55 @@ using System.IO;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Huffman.Tests
+namespace Huffman.Tests;
+
+public class CompressionTests
 {
-    public class CompressionTests
+    private readonly ITestOutputHelper _testOutputHelper;
+
+    public CompressionTests(ITestOutputHelper testOutputHelper)
     {
-        private readonly ITestOutputHelper _testOutputHelper;
+        _testOutputHelper = testOutputHelper;
+    }
 
-        public CompressionTests(ITestOutputHelper testOutputHelper)
-        {
-            _testOutputHelper = testOutputHelper;
-        }
+    [Theory]
+    [InlineData("A Tale of Two Cities.txt")]
+    [InlineData("Frankenstein or the Modern Prometheus.txt")]
+    [InlineData("Great Expectations.txt")]
+    [InlineData("Les Misérables.txt")]
+    [InlineData("Pride and Prejudice.txt")]
+    [InlineData("War of the Worlds.txt")]
+    public void File_compresses_and_decompresses(string filename)
+    {
+        var file = File.ReadAllText($"Test Files\\{filename}");
 
-        [Theory]
-        [InlineData("A Tale of Two Cities.txt")]
-        [InlineData("Frankenstein or the Modern Prometheus.txt")]
-        [InlineData("Great Expectations.txt")]
-        [InlineData("Les Misérables.txt")]
-        [InlineData("Pride and Prejudice.txt")]
-        [InlineData("War of the Worlds.txt")]
-        public void File_compresses_and_decompresses(string filename)
-        {
-            var file = File.ReadAllText($"Test Files\\{filename}");
+        _testOutputHelper.WriteLine($"Original size: {file.Length:N0} bytes.");
 
-            _testOutputHelper.WriteLine($"Original size: {file.Length:N0} bytes.");
+        var timer = new Stopwatch();
 
-            var timer = new Stopwatch();
+        timer.Start();
 
-            timer.Start();
+        var compressed = Compression.Compress(file);
 
-            var compressed = Compression.Compress(file);
+        timer.Stop();
 
-            timer.Stop();
+        _testOutputHelper.WriteLine($"Compressed size: {compressed.Length:N0} bytes.");
 
-            _testOutputHelper.WriteLine($"Compressed size: {compressed.Length:N0} bytes.");
-
-            _testOutputHelper.WriteLine($"Ratio: {(float) compressed.Length / file.Length *100:N2}%");
+        _testOutputHelper.WriteLine($"Ratio: {(float) compressed.Length / file.Length *100:N2}%");
             
-            _testOutputHelper.WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms.");
+        _testOutputHelper.WriteLine($"Time taken to compress: {timer.ElapsedMilliseconds:N0} ms.");
 
-            timer.Reset();
-            timer.Start();
+        timer.Reset();
+        timer.Start();
 
-            var decompressed = Compression.Decompress(compressed);
+        var decompressed = Compression.Decompress(compressed);
 
-            timer.Stop();
+        timer.Stop();
 
-            _testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length:N0} bytes.");
+        _testOutputHelper.WriteLine($"Decompressed size: {decompressed.Length:N0} bytes.");
 
-            _testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
+        _testOutputHelper.WriteLine($"Time taken to decompress: {timer.ElapsedMilliseconds:N0} ms.");
 
-            Assert.Equal(file, decompressed);
-        }
+        Assert.Equal(file, decompressed);
     }
 }
